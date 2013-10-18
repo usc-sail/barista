@@ -11,3 +11,9 @@
 *.lai
 *.la
 *.a
+
+build/
+tools/kaldi
+tools/libcppa
+tools/graphviz
+tools/graphviz-2.30.1
