@@ -18,8 +18,9 @@ echo "****(1) Installing kaldi"
   else
     cd kaldi/tools
     cp ../../*.patch* .
-    patch --verbose -N -p0 < makefile.patch    
+    patch --verbose -N -p0 < makefile.patch
     make -j 8
+    patch --verbose -N -p0 < install_portaudio.patch
     ./install_portaudio.sh
     cd ../src
     ./configure

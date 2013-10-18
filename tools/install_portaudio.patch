@@ -1,0 +1,17 @@
+--- install_portaudio.sh	2013-10-17 23:15:41.000000000 -0700
++++ install_portaudio_mod.sh	2013-10-18 04:14:06.000000000 -0700
+@@ -60,14 +60,6 @@
+ read -d '' pa_patch << "EOF"
+ --- portaudio/Makefile.in	2012-08-05 10:42:05.000000000 +0300
+ +++ portaudio/Makefile_mod.in	2012-08-05 10:41:54.000000000 +0300
+-@@ -57,6 +57,7 @@
+- 	src/common/pa_process.o \\
+- 	src/common/pa_stream.o \\
+- 	src/common/pa_trace.o \\
+-+	src/common/pa_ringbuffer.o \\
+- 	src/hostapi/skeleton/pa_hostapi_skeleton.o
+- 
+- LOOPBACK_OBJS = \\
+ @@ -193,6 +194,8 @@
+  	for include in $(INCLUDES); do \\
+  		$(INSTALL_DATA) -m 644 $(top_srcdir)/include/$$include $(DESTDIR)$(includedir)/$$include; \\
