@@ -10,20 +10,48 @@ set (CMAKE_CXX_COMPILER "g++-4.8")
 # We set compiler/linker flags afterwards since this call overwrites them.
 project (Barista CXX)
 
-# Set compiler flags
+
+######################
+# Set compiler flags #
+######################
+
 # 1. Copy the flags set by CXXFLAGS in KALDI_ROOT/src/kaldi.mk
 # 2. Add "-std=c++11 -fpermissive"
 # 3. Add "-Wno-unused-local-typedefs" to silence the warnings about OpenFst.
-set (CMAKE_CXX_FLAGS 
-  "${CMAKE_CXX_FLAGS} -msse -msse2 -fPIC -Wall -Wno-sign-compare -Winit-self -DKALDI_DOUBLEPRECISION=0 -DHAVE_POSIX_MEMALIGN -DHAVE_EXECINFO_H=1 -DHAVE_CXXABI_H -DHAVE_CLAPACK -g -std=c++11 -fpermissive -Wno-unused-local-typedefs"
-)
 
-# Set linker flags
-set (CMAKE_EXE_LINKER_FLAGS 
-  "${CMAKE_EXE_LINKER_FLAGS} -framework Accelerate -framework CoreAudio -framework AudioToolbox -framework AudioUnit -framework Carbon"
-)
+###### Typical flags for Linux
+IF(CMAKE_SYSTEM_NAME STREQUAL Linux)
+  set (CMAKE_CXX_FLAGS 
+    "${CMAKE_CXX_FLAGS} -msse -msse2 -fPIC -Wall -Wno-sign-compare -Winit-self -DKALDI_DOUBLEPRECISION=0 -DHAVE_POSIX_MEMALIGN -DHAVE_EXECINFO_H=1 -DHAVE_CXXABI_H -DHAVE_ATLAS -g -std=c++11 -fpermissive -Wno-unused-local-typedefs")
+ENDIF()
 
-# Set paths
+###### Typical flags for Mac OS X
+IF(APPLE)
+  set (CMAKE_CXX_FLAGS 
+    "${CMAKE_CXX_FLAGS} -msse -msse2 -fPIC -Wall -Wno-sign-compare -Winit-self -DKALDI_DOUBLEPRECISION=0 -DHAVE_POSIX_MEMALIGN -DHAVE_EXECINFO_H=1 -DHAVE_CXXABI_H -DHAVE_CLAPACK -g -std=c++11 -fpermissive -Wno-unused-local-typedefs")
+ENDIF()
+
+
+####################
+# Set linker flags #
+####################
+
+###### Typically no flags are set for Linux
+IF(CMAKE_SYSTEM_NAME STREQUAL Linux)
+  set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ")
+ENDIF()
+
+###### Typical flags for Mac OS X
+IF(APPLE)
+  set (CMAKE_EXE_LINKER_FLAGS 
+    "${CMAKE_EXE_LINKER_FLAGS} -framework Accelerate -framework CoreAudio -framework AudioToolbox -framework AudioUnit -framework Carbon")
+ENDIF()
+
+
+#############
+# Set paths #
+#############
+
 set(BARISTA_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/..)
 
 # Change the following path settings according to your local setup
@@ -97,3 +125,7 @@ target_link_libraries(barista
   cppa gvc cgraph
   ${PORTAUDIO_LIB}/libportaudio.a
 )
+
+IF(CMAKE_SYSTEM_NAME STREQUAL Linux)
+  target_link_libraries(barista lapack cblas atlas f77blas pthread asound jack)
+ENDIF()
