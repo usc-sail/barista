@@ -39,9 +39,11 @@ scripts (especially the one for installing kaldi) along with GCC-4.8.
 Installation
 ------------
 
-Unfortunately Barista build process is still semi-automatic. You should edit 
-barista/src/CMakeLists.txt file to match your setup before building Barista.
+Unfortunately Barista build process is still semi-automatic. 
+You might need to edit barista/src/CMakeLists.txt file to match your setup 
+before building Barista.
 
-* cd ../build
+* mkdir barista/build
+* cd barista/build
 * cmake ../src
 * make
