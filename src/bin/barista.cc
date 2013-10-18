@@ -27,7 +27,7 @@ typedef vector<vertex_type> adjacency_list_type;
 // Reads a graph in DOT (Graphviz) format.
 bool ReadGraph(string filename, adjacency_list_type* graph) {
   FILE* fp;
-  fp = filename == "" ? stdin : fopen(filename.c_str(), "r");
+  fp = fopen(filename.c_str(), "r");
   if (fp == NULL) {
     cerr << "Could not open graph file: " << filename << endl;
     return false;
@@ -145,19 +145,19 @@ bool RunActors(adjacency_list_type& graph,
 int main(int argc, char *argv[]) {
   try {
     const char *usage =
-      "Launch a batch processing environment.\n"
-      "Usage:  barista-batch [options] module-config.ini [module-graph.dot]\n"
+      "Launch a barista instance.\n"
+      "Usage:  barista [options] module-config.ini [module-graph.dot]\n"
       "Note: module-config is a configuration file in INI format.\n"
       "      module-graph  is a directed graph in DOT (GraphViz) format.";
     ParseOptions po(usage);
     po.Read(argc, argv);
   
-    if (po.NumArgs() < 1 || po.NumArgs() > 2) {
+    if (po.NumArgs() != 2) {
       po.PrintUsage();
       exit(1);
     }
 
-    string config_filename = po.GetArg(1), graph_filename = po.GetOptArg(2);
+    string config_filename = po.GetArg(1), graph_filename = po.GetArg(2);
   
     // Read actor config
   	ptree config;
