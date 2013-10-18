@@ -19,14 +19,16 @@ echo "****(1) Installing libcppa"
   else
     cd libcppa
     ./configure --prefix=`pwd` --with-gcc=g++-4.8
-    make
+    make -j 8
     make install
     cd ..
   fi
 )
+
 ok_libcppa=$?
 if [ $ok_libcppa -eq 0 ]; then
   echo "libcppa install successful."
 else
   echo "****libcppa install failed."
 fi
+
