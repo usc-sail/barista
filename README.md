@@ -4,7 +4,7 @@ barista
 Barista is an open-source framework for concurrent speech processing from 
 USC-SAIL.
 
-Evil minions are working 24/7 to bring you the preview release of Barista.
+Sexy minions are working 24/7 to bring you the preview release of Barista.
 
 Supported Operating Systems
 ---------------------------
