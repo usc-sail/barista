@@ -6,6 +6,7 @@ USC-SAIL.
 
 Evil minions are working 24/7 to bring you the preview release of Barista.
 The minions will strike in 24 hours if the pay rate does not increase.
+But first some coffee.
 
 Supported Operating Systems
 ---------------------------
