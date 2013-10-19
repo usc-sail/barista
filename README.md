@@ -32,8 +32,8 @@ We strongly recommend installing Barista dependencies using the provided
 scripts (especially the one for installing kaldi) along with GCC-4.8.
 
 * cd barista/tools
-* ./install_kaldi.sh
-* ./install_libcppa.sh
+* ./install_kaldi.sh 4  # 4 jobs will be run in parallel (make -j 4) 
+* ./install_libcppa.sh  # if number of jobs is not specified, it defaults to 1
 * ./install_graphviz.sh
 
 Installation
