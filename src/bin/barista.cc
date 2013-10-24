@@ -1,4 +1,3 @@
-#include "util/common-utils.h"
 #include "base/kaldi-type-info.h"
 #include "io/vector-writer.h"
 #include "io/matrix-writer.h"
@@ -10,6 +9,7 @@
 #include "feat/apply-cmvn.h"
 #include "feat/add-deltas.h"
 #include "gmm/gmm-decode-faster-online.h"
+#include "util/common-utils.h"
 #include "gvc.h"
 #include "boost/property_tree/ini_parser.hpp"
 

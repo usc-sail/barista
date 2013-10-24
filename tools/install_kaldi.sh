@@ -25,6 +25,9 @@ echo "**** Installing Kaldi"
     patch --verbose -N -p0 < install_portaudio.patch
     ./install_portaudio.sh
     cd ../src
+    mv ../tools/configure.patch .
+    cp ../../darwin_10_9.mk makefiles/darwin_10_9.mk
+    patch --verbose -N -p0 < configure.patch
     ./configure
     sed -i.bk 's/\-rdynamic//g; s/g++/g++-4.8/g;' kaldi.mk
     grep -ilr 'make_pair<' * | xargs -I@ sed -i.bk 's/make_pair\</pair</g' @

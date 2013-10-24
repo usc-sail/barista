@@ -28,7 +28,7 @@ ENDIF()
 ###### Typical flags for Mac OS X
 IF(APPLE)
   set (CMAKE_CXX_FLAGS 
-    "${CMAKE_CXX_FLAGS} -msse -msse2 -fPIC -Wall -Wno-sign-compare -Winit-self -DKALDI_DOUBLEPRECISION=0 -DHAVE_POSIX_MEMALIGN -DHAVE_EXECINFO_H=1 -DHAVE_CXXABI_H -DHAVE_CLAPACK -g -std=c++11 -fpermissive -Wno-unused-local-typedefs")
+    "${CMAKE_CXX_FLAGS} -msse -msse2 -fPIC -Wall -Wno-sign-compare -Winit-self -DKALDI_DOUBLEPRECISION=0 -DHAVE_POSIX_MEMALIGN -DHAVE_EXECINFO_H=1 -DHAVE_CXXABI_H -DHAVE_CLAPACK -flax-vector-conversions -g -std=c++11 -fpermissive -Wno-unused-local-typedefs")
 ENDIF()
 
 
@@ -101,6 +101,10 @@ add_library(barista-feat STATIC
   feat/compute-mfcc-feats.cc feat/apply-cmvn.cc feat/add-deltas.cc 
 )
 
+add_library(barista-decoder STATIC 
+  decoder/faster-online-decoder.cc
+)
+
 add_library(barista-gmm STATIC 
   gmm/gmm-decode-faster-online.cc
 )
@@ -108,7 +112,7 @@ add_library(barista-gmm STATIC
 add_executable(barista bin/barista.cc)
 
 target_link_libraries(barista 
-  barista-base barista-io barista-feat barista-gmm
+  barista-base barista-io barista-feat barista-decoder barista-gmm
   ${KALDI_SRC}/online/kaldi-online.a  
   ${KALDI_SRC}/decoder/kaldi-decoder.a
   ${KALDI_SRC}/feat/kaldi-feat.a
