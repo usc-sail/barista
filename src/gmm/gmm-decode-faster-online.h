@@ -82,8 +82,6 @@ public:
     utt_frame_count = 0;
     utt_number = 1;
     
-    timer.Reset();
-    
     running_state = Run();
     
   }

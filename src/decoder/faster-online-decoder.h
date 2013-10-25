@@ -17,8 +17,8 @@
 // See the Apache 2 License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef KALDI_DECODER_FASTER_DECODER_H_
-#define KALDI_DECODER_FASTER_DECODER_H_
+#ifndef KALDI_DECODER_FASTER_ONLINE_DECODER_H_
+#define KALDI_DECODER_FASTER_ONLINE_DECODER_H_
 
 #include "util/stl-utils.h"
 #include "itf/options-itf.h"

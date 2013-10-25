@@ -20,6 +20,7 @@ echo "**** Installing libcppa"
     exit 1
   else
     cd libcppa
+    patch --verbose -N -p0 < ../libcppa.patch
     ./configure --prefix=`pwd` --with-gcc=g++-4.8
     make -j $njobs
     make install

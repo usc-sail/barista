@@ -134,6 +134,9 @@ behavior GMMDecodeFasterOnline::Run(){
       }
       utt_number++;
     },
+    on(atom("START")) >> [=]() {
+      timer.Reset();
+    },
     on(atom("QUIT")) >> [=]() {
       self->quit(exit_reason::user_shutdown);
     },

@@ -179,10 +179,10 @@ int main(int argc, char *argv[]) {
         !RunActors(graph, &actor_map, &subscribers_map, actors)) {
       exit(1);
     }
-        
+    
     // Send the START message to the actors group
     send(actors, atom("START"));
-        
+    
     // Wait until other actors are done
     await_all_others_done();
     

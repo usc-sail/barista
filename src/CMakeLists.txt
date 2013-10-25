@@ -31,6 +31,7 @@ IF(APPLE)
     "${CMAKE_CXX_FLAGS} -msse -msse2 -fPIC -Wall -Wno-sign-compare -Winit-self -DKALDI_DOUBLEPRECISION=0 -DHAVE_POSIX_MEMALIGN -DHAVE_EXECINFO_H=1 -DHAVE_CXXABI_H -DHAVE_CLAPACK -flax-vector-conversions -g -std=c++11 -fpermissive -Wno-unused-local-typedefs")
 ENDIF()
 
+set_source_files_properties(decoder/faster-online-decoder.cc PROPERTIES COMPILE_FLAGS -O3)
 
 ####################
 # Set linker flags #
@@ -44,7 +45,7 @@ ENDIF()
 ###### Typical flags for Mac OS X
 IF(APPLE)
   set (CMAKE_EXE_LINKER_FLAGS 
-    "${CMAKE_EXE_LINKER_FLAGS} -framework Accelerate -framework CoreAudio -framework AudioToolbox -framework AudioUnit -framework Carbon")
+    "${CMAKE_EXE_LINKER_FLAGS} -framework Accelerate -framework CoreAudio -framework AudioToolbox -framework AudioUnit -framework Carbon -g")
 ENDIF()
 
 
@@ -125,11 +126,11 @@ target_link_libraries(barista
   ${KALDI_SRC}/util/kaldi-util.a
   ${KALDI_SRC}/base/kaldi-base.a
   ${OPEN_FST_LIB}/libfst.a
-  dl m
+  dl m pthread
   cppa gvc cgraph
   ${PORTAUDIO_LIB}/libportaudio.a
 )
 
 IF(CMAKE_SYSTEM_NAME STREQUAL Linux)
-  target_link_libraries(barista lapack cblas atlas f77blas pthread asound jack)
+  target_link_libraries(barista lapack cblas atlas f77blas asound jack)
 ENDIF()
