@@ -1,5 +1,5 @@
---- install_portaudio.sh	2013-10-17 23:15:41.000000000 -0700
-+++ install_portaudio_mod.sh	2013-10-18 04:14:06.000000000 -0700
+--- install_portaudio.sh	2013-11-11 16:24:12.170081752 -0800
++++ install_portaudio_mod.sh	2013-11-11 23:48:31.558148669 -0800
 @@ -60,14 +60,6 @@
  read -d '' pa_patch << "EOF"
  --- portaudio/Makefile.in	2012-08-05 10:42:05.000000000 +0300
@@ -15,3 +15,12 @@
  @@ -193,6 +194,8 @@
   	for include in $(INCLUDES); do \\
   		$(INSTALL_DATA) -m 644 $(top_srcdir)/include/$$include $(DESTDIR)$(includedir)/$$include; \\
+@@ -90,7 +82,7 @@
+ fi
+ 
+ ./configure --prefix=`pwd`/install --with-pic
+-
++sed -i '40s:src/common/pa_ringbuffer.o::g; 40s:$: src/common/pa_ringbuffer.o:' Makefile
+ 
+ if [ "$MACOS" != "" ]; then
+     echo "detected MacOS operating system ... trying to fix Makefile"
