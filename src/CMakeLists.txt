@@ -37,12 +37,15 @@ set_source_files_properties(decoder/faster-online-decoder.cc PROPERTIES COMPILE_
 # Set linker flags #
 ####################
 
-###### Typically no flags are set for Linux
+# 1. Copy the flags set by LDFLAGS and LDLIBS in KALDI_ROOT/src/kaldi.mk
+# 2. Copy the frameworks set by SHARED_FLAGS in KALDI_ROOT/tools/portaudio/Makefile
+
+###### Typical flags for Linux
 IF(CMAKE_SYSTEM_NAME STREQUAL Linux)
-  set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ")
+  set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ")
 ENDIF()
 
-###### Typical flags for Mac OS X
+###### Typical flags for Mac OS 
 IF(APPLE)
   set (CMAKE_EXE_LINKER_FLAGS 
     "${CMAKE_EXE_LINKER_FLAGS} -framework Accelerate -framework CoreAudio -framework AudioToolbox -framework AudioUnit -framework Carbon -g")
@@ -76,7 +79,9 @@ set(PORT_AUDIO_INCLUDE ${KALDI_ROOT}/tools/portaudio/install/include)
 set(PORTAUDIO_LIB ${KALDI_ROOT}/tools/portaudio/install/lib)
 
 ##############################################################################
-# You probably don't need to change anything beyond this point.              #
+# If you are on Mac OS X, you probably don't need to change anything beyond  #
+# this point. If you are on Linux, you might have to change the extra libs   #
+# added at the bottom of this file depending on your setup.                  #
 ##############################################################################
 
 link_directories(
@@ -131,6 +136,16 @@ target_link_libraries(barista
   ${PORTAUDIO_LIB}/libportaudio.a
 )
 
+################################################
+# Set extra libraries needed for Linux systems #
+################################################
+
+# 1. Copy the libs listed under LDLIBS in KALDI_ROOT/src/kaldi.mk 
+# 2. Copy the libs listed under LIBS and DLL_LIBS in KALDI_ROOT/tools/portaudio/Makefile
+
 IF(CMAKE_SYSTEM_NAME STREQUAL Linux)
-  target_link_libraries(barista lapack cblas atlas f77blas asound jack)
+  target_link_libraries(barista 
+    lapack cblas atlas f77blas 
+    rt #asound jack
+  )
 ENDIF()
