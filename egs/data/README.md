@@ -1,0 +1,1 @@
+Create a new folder for each dataset, e.g. sample, aurora4, etc.
