@@ -1,0 +1,709 @@
+gmm-decode-faster --max-active=7000 --beam=13.0 --acoustic-scale=0.083333 --allow-partial=true --word-symbol-table=../../models/wsj/words.txt ../../models/wsj/final.mdl ../../models/wsj/HCLG.fst 'ark:compute-mfcc-feats --config=mfcc.conf scp:test.scp ark:- |   tee feats | compute-cmvn-stats ark:- ark:- |   apply-cmvn --norm-vars=false ark:- ark:feats ark:- |   add-deltas ark:- ark:- |' ark,t:test.tra 
+compute-cmvn-stats ark:- ark:- 
+add-deltas ark:- ark:- 
+compute-mfcc-feats --config=mfcc.conf scp:test.scp ark:- 
+apply-cmvn --norm-vars=false ark:- ark:feats ark:- 
+440c0201 MANY SEE THE NEED FOR INTERNATIONAL MANAGERS WILL KEEP RISING 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c0201 is -8.19104 over 571 frames.
+440c0202 THE COMPANY HAS FIVE HUNDRED JAPANESE MANAGERS OVERSEAS MOST OF THEM IN KEY POSITIONS AND EXPECTS THE NUMBER TRY SIXTY PERCENT IN THE NEXT FIVE YEARS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c0202 is -8.24219 over 1219 frames.
+440c0203 ABOUT HALF OF THESE MANAGERS AROUND US 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c0203 is -7.70248 over 459 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 10 utterances
+440c0204 R. L. I. CORPORATION THE PEORIA ILLINOIS BASED INSURANCE HOLDING COMPANY WILL BEGIN TRADING FRIDAY ON THE BIG BOARD CANDIDATES AND LORILLARD 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c0204 is -8.36249 over 1151 frames.
+440c0205 THE COMPANY PREVIOUSLY TRADED OVER THE COUNTER 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c0205 is -7.91507 over 443 frames.
+440c0206 TWO OTHER ISSUES BEGAN TRADING RECENTLY ON THE BIG BOARD 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c0206 is -7.9645 over 511 frames.
+440c0207 THE AGENCY ISN'T LIKELY TO TAKE ANY ACTION UNTIL UNION'S RANK AND FILE VOTES ON A CONTRACT AND TWO TO THREE WEEKS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c0207 is -8.34156 over 897 frames.
+440c0208 UNION OFFICIALS EXPECT RATIFICATION 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c0208 is -7.70292 over 465 frames.
+440c0209 THE P. B. G. C. SPOKESWOMAN DECLINED COMMENT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c0209 is -8.0887 over 469 frames.
+440c020a DESPITE THE JULY DECLINE DURABLE GOODS ORDERS GERMAIN SEVEN POINT SEVEN PERCENT OF BOTH THE YEAR EARLIER LEVEL 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020a is -8.40416 over 864 frames.
+440c020b ECONOMISTS WERE ENCOURAGED BY ONE POINT SIX PERCENT INCREASE IN NEW ORDERS FOR NON DEFENSE CAPITAL GOODS AN IMPORTANT INDICATOR OF FUTURE BUSINESS INVESTMENT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020b is -8.40541 over 1203 frames.
+440c020c THE RISE IN THAT CATEGORY IN JULY WAS LED BY INCREASED ORDERS FOR AIRCRAFT AND PARTS NON ELECTRICAL MACHINERY LUMBER AND FURNITURE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020c is -8.33999 over 1164 frames.
+440c020d INTEREST RATES ROSE ON SHORT TERM TREASURY BILLS SOLD BY THE GOVERNMENT YESTERDAY AT ITS REGULAR WEEKLY AUCTION 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020d is -8.32566 over 874 frames.
+440c020e THE AVERAGE RATE ON NEW THIRTEEN WEEK TREASURY BILLS INCREASED TO SIX POINT ONE TWO PERCENT FROM FIVE POINT NINE SEVEN PERCENT THE PREVIOUS AUCTION LAST WEEK 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020e is -8.40092 over 1232 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 20 utterances
+440c020f THE AVERAGE RATE ON NEW TWENTY SIX WEEK BILLS ROSE TO SIX POINT ONE SIX PERCENT FROM SIX POINT ONE TWO PERCENT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020f is -8.08517 over 1056 frames.
+440c020g ANALYSTS TO GENERALLY PLAY DOWN THE EFFECT ON BANKS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020g is -7.87715 over 616 frames.
+440c020h IN A FUNDAMENTAL SENSE THE EQUITY MARKETS HAVE VERY LITTLE TO DO WITH WHAT GOES ON IN THE COMMERCIAL BANKS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020h is -8.15321 over 849 frames.
+440c020i THERE SHOULDN'T BE ANY RISK TO THE BANKS IN A SORT OF STUFF SAID LAWRENCE KLEIN A BANKING ANALYST AT MERRILL LYNCH AND COMPANY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020i is -8.27724 over 941 frames.
+440c020j THE INDEPENDENT COMMITTEE WILL RECOMMEND THAT HOLDERS ACCEPT THE OFFER AT A MEETING EXPECTED TO BE HELD IN DECEMBER TO THE B. A. SAID 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020j is -8.14768 over 1028 frames.
+440c020k THE TRANSACTION REQUIRES APPROVAL OF A MAJORITY OF THE SHARES OF THE HOLDERS NOT AFFILIATED WITH MR. ICAHN 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020k is -8.28952 over 844 frames.
+440c020l THE INVESTOR NOW OWNS SEVENTY THREE PERCENT OF THE COMPANY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020l is -7.93999 over 538 frames.
+440c020m TEXACO HISTORY CHOICES THE COMPANY AND PFIZER SHOWS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020m is -7.8449 over 585 frames.
+440c020n IT CAN SIGN ON TO THE PLAN TO FILE A COMPETING PLAN <UNK> ORTEGA COMPLETELY PASSENGER ALTHOUGH NEITHER ENDORSING A SMALL OPPOSES THE PLAN 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020n is -8.0778 over 1123 frames.
+440c020o UNABLE TO AGREE ON FRIDAY THE BOARD MUST MEET AGAIN AT LEAST BY PHONE TO REGISTER CHOICE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020o is -8.01929 over 918 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 30 utterances
+440c020p COMMERCE DEPARTMENT OFFICIALS NOTED HOWEVER THAT AUTO IMPORT USUALLY RISE IN OCTOBER IT USEFUL THEIR INVENTORIES WITH NEW MODELS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020p is -8.34632 over 1064 frames.
+440c020q BUT RISING AUTO IMPORTS ALSO REFLECTS HIGHER PRICES FOR IMPORTED CARS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020q is -8.21003 over 697 frames.
+440c020r PRICES ARE GOING ON SAID GEORGE C. NEEDS VICE PRESIDENT AND CHIEF ECONOMIST AT GENERAL MOTORS CORPORATION 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020r is -8.28453 over 851 frames.
+440c020s WHAT WE DON'T KNOW JUST HOW MUCH IS PLACED ON HOW MUCH AS FOURTEEN 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020s is -7.92542 over 601 frames.
+440c020t RATES FELL ON SHORT TERM TREASURY BILLS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020t is -7.75659 over 485 frames.
+440c020u THE RATE ON THE LATEST THREE MONTH BILLS DECLINED TO SIX POINT FOUR THREE PERCENT BID FROM AN AVERAGE OF SIX POINT FIVE THREE PERCENT SET AT TUESDAY'S AUCTION 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020u is -8.12206 over 1276 frames.
+440c020v THE RATE ON SIX MONTH BILLS FELL TO SIX POINT SEVEN THREE PERCENT FROM SIX POINT EIGHT THREE PERCENT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020v is -8.11767 over 894 frames.
+440c020w DURABLE GOODS REPORT FREQUENTLY ARE HIGHLY VOLATILE FROM MONTH TO MONTH 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020w is -8.00113 over 658 frames.
+440c020x MANY ANALYSTS CITED EXPECTED INCREASE IN AIRCRAFT ORDERS WAS A BIG REASON FOR THE ANTICIPATED JUNE INCREASE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020x is -8.17452 over 988 frames.
+440c020y ESTIMATES FOR THE GAME RANGE FROM TWO PERCENT TO THREE PERCENT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020y is -7.76059 over 667 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 40 utterances
+440c020z UTILITY ANALYSTS HOWEVER EXPECT THE AGREEMENT TO BE COMPLETED WITHOUT MUCH DIFFICULTY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c020z is -7.94694 over 829 frames.
+440c0210 YESTERDAY MOODY'S INVESTORS SERVICE PLACED LILCO'S CREDIT RATINGS IN RECOGNITION OF THE IMPROVED OUTLOOK FOR STEADY FINANCIAL RECOVERY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c0210 is -8.21903 over 1161 frames.
+440c0211 ABOUT THREE POINT FIVE BILLION DOLLARS OF SECURITIES ARE AFFECTED 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c0211 is -7.95249 over 603 frames.
+440c0212 HE ALSO SAID THAT THE COMPANY FOR THE FIRST TIME WAS DEVELOPING SHOULD SPECIFICALLY FOR THE OVER THE COUNTER CONSUMER HEALTH CARE MARKET 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c0212 is -8.32234 over 986 frames.
+440c0213 HE SAID SUCH PRODUCTS WOULD BE MARKETED BY OTHER COMPANIES WITH EXPERIENCE IN THAT BUSINESS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c0213 is -8.1775 over 726 frames.
+440c0214 HE DECLINED TO NAME SPECIFIC PRODUCTS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 440c0214 is -7.78705 over 432 frames.
+441c0201 FIRST COMMODITY APPEAL THE EXPULSION CONFINED TO THE C. F. T. C. A. 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c0201 is -8.23082 over 611 frames.
+441c0202 A COMMISSION SPOKESMAN SAID A DECISION ON THE APPEAL OF EXPECTED SEVEN 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c0202 is -8.28077 over 633 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 50 utterances
+441c0203 FIRST COMMODITY OFFICIALS COULDN'T BE REACHED FOR COMMENT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c0203 is -8.33575 over 447 frames.
+441c0204 AND AS THE EXPLANATION OF WHY PARADISE GROWTH IN JAPAN IS LOWER DESPITE FIFTEEN YEARS OF AFRICA 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c0204 is -8.46411 over 768 frames.
+441c0205 THE LINE IT IS A BIG PROBLEM 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c0205 is -8.0129 over 303 frames.
+441c0206 <UNK> AMERICA AN AMERICAN TO THE STREETS TO CLIENTS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c0206 is -8.40469 over 507 frames.
+441c0207 INDEPENDENT CONTRACTOR SAID THE STAKE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c0207 is -8.03307 over 460 frames.
+441c0208 THE OVERALL GAIN IN THE FIFTH IN THE PAST SEVEN MONTHS FOLLOWED A REVISED FOUR POINT ONE PERCENT INCREASE IN FEBRUARY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c0208 is -8.45688 over 818 frames.
+441c0209 THE EARLIER RISE WAS PREVIOUSLY REPORTED AS FOUR POINT THREE PERCENT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c0209 is -8.38985 over 554 frames.
+441c020a IF THE FED IS EXCLUDED MARCH ORDERS ROSE ONE PERCENT AFTER THREE PERCENT INCREASE IN FEBRUARY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020a is -8.29041 over 888 frames.
+441c020b GRAND AUTO SLID THREE TO FIFTEEN AND ONE EIGHTH ON THE AMERICAN STOCK EXCHANGE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020b is -8.28971 over 660 frames.
+441c020c THE COMPANY WHICH RUNS RETAIL AUTOMOTIVE STORES KAUL OF SHEARSON LEHMAN BROTHERS ITS FINANCIAL ADVISER TO TERMINATE DISCUSSIONS TO SELL THE FIRM 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020c is -8.51274 over 924 frames.
+441c020d IT RECEIVED NO PROPOSALS ARE IN THE BEST INTERESTS OF THE SHAREHOLDERS THE COMPANY SAID 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020d is -8.58379 over 607 frames.
+441c020e ELDERS BERLIN WILL BE BASED ACCESS TO LEAD TO SEVENTY PERCENT OF ASSETS ARE IN BRITAIN AND CANADA 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020e is -8.53089 over 743 frames.
+441c020f ALSO COMMENTED A SECOND BRAND OF TAX ADVANTAGES 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020f is -8.42393 over 489 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 60 utterances
+441c020g ELDERS FINANCE AND ELDERS AGRIBUSINESS WILL REMAIN BASED IN AUSTRALIA 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020g is -8.5848 over 558 frames.
+441c020h TWO YEARS AGO B. A. S. HAS MADE SOME A SEPARATE ACQUISITIONS IN THE LAST 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020h is -8.17233 over 682 frames.
+441c020i ITS BEST WAS THE ONE BILLION DOLLAR PURCHASE OF UNITED TECHNOLOGIES CORPORATION'S IN MIND SUBSIDIARY A MAJOR SUPPLIER OF DATA THE AUTO INDUSTRY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020i is -8.55773 over 1094 frames.
+441c020j TO GET A NINETY PERCENT OF THE FOUR BILLION DOLLARS OF B. A. S. F.'S SALES IN THE LAST IS PRODUCED THERE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020j is -8.2214 over 780 frames.
+441c020k THE FOLLOWING OFFICERS DIRECTORS AND LARGE STOCKHOLDERS OF COMPANIES REPORTED CHANGES IN HOLDINGS UNDER THE SECURITIES EXCHANGE ACT OF NINETEEN THIRTY FOUR 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020k is -8.33759 over 1053 frames.
+441c020l THOSE IDENTIFIED AS BENEFICIAL OWNERS HOLD AT LEAST TEN PERCENT OF THE COMPANY'S EQUITY SECURITIES 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020l is -8.20895 over 879 frames.
+441c020m UNLESS OTHERWISE NOTED CHANGES INVOLVED DIRECT HOLDINGS OF COMMON STOCK AND TOOK PLACE IN SEPTEMBER AND OCTOBER OF NINETEEN EIGHTY SEVEN 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020m is -8.41875 over 928 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 70 utterances
+441c020n COMPANIES ARE LISTED WHERE TRANSACTIONS GENERALLY AGGREGATE TEN THOUSAND SHARES OR ONE HUNDRED THOUSAND DOLLARS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020n is -8.4364 over 806 frames.
+441c020o A BAN ON A BUSINESSMAN CAN COUNT ON IS THE POLICY WILL BE PRETTY VOLATILE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020o is -8.42387 over 637 frames.
+441c020p IF THE DOLLAR STARTS TO BIND THE FED MAY STEP UP ITS DEFENSE OF THE CURRENCY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020p is -8.3643 over 638 frames.
+441c020q BUT WITH AND PUSHES THE DOLLAR HIGHER THAN MAKER BUT THE DEMAND FOR U. S. EXPORTS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020q is -8.31754 over 600 frames.
+441c020r THE TENTATIVE IS PLACED ON REDUCTION OF CROSS COUNTRY LOANS MR. MEIER MAN SAID 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020r is -8.54415 over 612 frames.
+441c020s ANALYSTS HADN'T FOCUSED ON WHAT HAPPENED AGAIN 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020s is -7.88138 over 447 frames.
+441c020t <UNK> HAS EXPOSURE REALLY BEEN REDUCED 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020t is -8.23369 over 378 frames.
+441c020u I GUESS THE TOWEL 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020u is -7.85926 over 282 frames.
+441c020v CLOSED END FUNDS ARE TRADED ON EXCHANGES LIKE STOCKS THAT INVEST IN LIGHT OF FOLLY OF OTHER SECURITIES 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020v is -8.47675 over 810 frames.
+441c020w ON THE CLOSED END FUNDS HAVE BEEN AROUND SINCE AT LEAST THE NINETEEN TWENTIES THE BOOM IN POPULARITY THIS YEAR 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020w is -8.35686 over 776 frames.
+441c020x THE BOND FUNDS IN PARTICULAR PROVIDE OF ROBUST YIELDS FOR INVESTORS AND HEFTY FEES FOR UNDERWRITERS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020x is -8.30448 over 740 frames.
+441c020y <UNK> THE PUBLIC NEW YORK ROSE ONE AND ONE QUARTER TO FORTY FIVE AND SEVEN EIGHTHS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020y is -8.43613 over 609 frames.
+441c020z THE COMPANY SAID ITS EUROPEAN BANKING AFFILIATES AS RENT A PUBLIC PLANS TO RAISE MORE THAN FOUR HUNDRED FIFTY MILLION DOLLARS TO AN INTERNATIONAL OFFERING 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c020z is -8.58588 over 1006 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 80 utterances
+441c0210 AFTER THE OFFERING THE PUBLIC NEW YORK WILL HOLD ABOUT FORTY NINE PERCENT OF THE AFFILIATES 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c0210 is -8.38368 over 676 frames.
+441c0211 THE CAPITAL AS THE FINANCIAL TIMES THIRTY SHARE INDEX WAS THREE POINT NINE POINTS LOWER AT ONE THOUSAND FOUR HUNDRED EIGHTEEN POINT SIX 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c0211 is -8.64115 over 935 frames.
+441c0212 VOLUME WAS MODEST AS THREE HUNDRED TWENTY SIX POINT SEVEN MILLION SHARES CHANGED HANDS COMPARED WITH THREE HUNDRED NINETY SIX POINT FIVE MILLION FRIDAY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c0212 is -8.63701 over 991 frames.
+441c0213 THE ONE HUNDRED SHARE INDEX CLOSED SIX POINT EIGHT POINTS LOWER AT ONE THOUSAND SEVEN HUNDRED FIFTY NINE POINT NINE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c0213 is -8.62313 over 799 frames.
+441c0214 HE ALSO SAID THAT THE COMPANY FOR THE FIRST TIME THAT IS DEVELOPING TRIED SPECIFICALLY FOR THE OVER THE COUNTER CONSUMER HEALTH CARE MARKET 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c0214 is -8.52519 over 866 frames.
+441c0215 HE SAID THAT BY NEXT TO THE MARKET BY OTHER COMPANIES OF EXPERIENCE IN THAT BUSINESS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c0215 is -8.63411 over 556 frames.
+441c0216 HE DECLINED TO NAME SPECIFIC PRODUCTS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 441c0216 is -8.14862 over 381 frames.
+442c0201 BIDS TOTALING FIVE HUNDRED TWENTY FIVE POINT FIVE MILLION DOLLARS WERE SUBMITTED 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c0201 is -7.92464 over 566 frames.
+442c0202 ACCEPTED BIDS RANGED FROM SIX POINT TWO PERCENT TO SIX POINT TWO TWO FIVE PERCENT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c0202 is -7.91114 over 728 frames.
+442c0203 THE BANK HOLDING COMPANY SLATED ANOTHER FIFTY MILLION DOLLAR SALE NEXT TUESDAY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c0203 is -7.957 over 642 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 90 utterances
+442c0204 AN I. C. C. INVESTMENTS AS THREE SERIES OF PUBLICLY TRADED PREFERRED SHARES INTO A SERIES OF PRIVATELY HELD PREFERRED STOCK 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c0204 is -8.08591 over 933 frames.
+442c0205 AN I. C. C. SAID IT INTENDS TO PAY THE DIVIDEND ARREARS ON JULY THIRTY FIRST TO STOCK OF RECORD JULY SECOND 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c0205 is -7.86354 over 957 frames.
+442c0206 THE TORONTO BASED COMPANY PROVIDES MORTGAGE GUARANTEES TO THE CANADIAN REAL ESTATE INDUSTRY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c0206 is -8.09606 over 688 frames.
+442c0207 GRANADA SLID THREE TO FIFTEEN AND ONE EIGHTH ON THE AMERICAN STOCK EXCHANGE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c0207 is -7.82551 over 660 frames.
+442c0208 THE COMPANY WHICH RUNS RETAIL AUTOMOTIVE STORES TO SHEARSON LEHMAN BROTHERS ITS FINANCIAL ADVISER TO GENERATE DISCUSSIONS TO SELL THE FIRM 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c0208 is -8.08179 over 1040 frames.
+442c0209 INTERSTATE THE PROPOSALS THAT WERE THE BEST INTEREST OF SHAREHOLDERS THE COMPANY SAID 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c0209 is -8.04061 over 623 frames.
+442c020a CREDITORS PREVIOUSLY REPORTED THE ITALIAN AGRICULTURAL CONCERN ISN'T ABOUT ONE HUNDRED NINETY FIVE MILLION DOLLARS IN SUBORDINATED DEBT AS PART OF THE TRANSACTION 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020a is -8.252 over 1185 frames.
+442c020b THOUGH SHAMROCK'S PRETAX PROFIT AND SALES OF ONE HUNDRED TWENTY FIVE MILLION DOLLARS A SPOKESWOMAN SAID 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020b is -8.00853 over 819 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 100 utterances
+442c020c SHAMROCK HAS INTERESTS IN TELEVISION RADIO STATIONS ENERGY SERVICES REAL ESTATE IN VENTURE CAPITAL 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020c is -8.28197 over 701 frames.
+442c020d SONY CORPORATION FOR EXAMPLE CLOSE OF FOUR THOUSAND NINE HUNDRED FIFTY AND THIRTY FOUR DOLLARS AND FIFTY CENTS A SHARE YESTERDAY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020d is -7.92369 over 999 frames.
+442c020e AN ITALIAN TRADING ROSE THE MAXIMUM ONE DAY DROP FOR CELANESE FIVE HUNDRED YEN ABOUT THREE DOLLARS AND FIFTY CENTS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020e is -8.35581 over 788 frames.
+442c020f MR. LEDEEN ASKING PRICE OF STOCK WAS FOUR THOUSAND EIGHT HUNDRED FIFTY THAT THERE WERE NO BUYERS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020f is -8.2245 over 632 frames.
+442c020g A MONSANTO SPOKESMAN SAID THERE IS A DELICATE SAY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020g is -7.89988 over 554 frames.
+442c020h WE JUST RECEIVED A STAKE IN THE DOCUMENT IS MASSIVE TAX TWO HUNDRED PAGES 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020h is -8.05185 over 581 frames.
+442c020i BUT A FIRST RATE IN THE CASE IS WITHOUT MERIT AND WE INTEND TO FIGHT IT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020i is -7.99254 over 556 frames.
+442c020j ACCORDING TO THE AVERAGE ESTIMATE OF TEN ECONOMISTS SURVEYED BY DOW JONES CAPITAL MARKETS REPORT NEW ORDERS FOR U. S. DURABLE GOODS ROSE TWO POINT FOUR PERCENT LAST MONTH 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020j is -8.37391 over 1086 frames.
+442c020k POWERFUL TWO POINT TWO PERCENT DROP IN MAY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020k is -7.83413 over 500 frames.
+442c020l IN A SLUMP TO REPORT A JUNE TWENTY SECOND CAME AS A BIG SURPRISE TO MOST ANALYSTS IN WHATEVER POWERFUL BOND RALLY THAT DAY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020l is -8.36395 over 919 frames.
+442c020m EVEN SOME ECONOMISTS CAUTION THAT THEY ARE LEERY OF PAINT A BIG PREMIUM 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020m is -8.02311 over 605 frames.
+442c020n WE'RE GOING TO BE BETTER SAYS A TOP OFFICIAL OF THE MAJOR OIL COMPANY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020n is -7.9884 over 524 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 110 utterances
+442c020o BUT IF THE WINNING BID AS HIGH AS THE WARRANTS AND USE EARLIER THIS YEAR BUT WE'RE NOT GOING TO BE WINNING BIDDERS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020o is -8.19741 over 705 frames.
+442c020p THE COMPANY SAID IT WOULD BEGIN A DUTCH AUCTION LATER THIS WEEK FOR AS MANY AS FORTY MILLION SHARES OR TWENTY SIX PERCENT OF ITS SHARES OUTSTANDING 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020p is -8.40818 over 888 frames.
+442c020q IN A DUTCH AUCTION HOLDERS TENDER THEIR SHARES AT PRICES WITHIN THE STATED RANGE IN THIS CASE BETWEEN TWENTY DOLLARS AND THIRTY THREE DOLLARS A SHARE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020q is -8.27228 over 979 frames.
+442c020r THE COMPANY THEN ACCEPTS THE SHARES TENDERED AT THE LOWEST PRICE NEEDED TO REACH ITS GOAL THAT PAYS THEM OUT FOR ALL SHARES IT PURCHASES 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020r is -8.23779 over 880 frames.
+442c020s AT THE CLOSE THE FINANCIAL TIMES THIRTY SHARE INDEX WAS THREE POINT NINE POINTS LOWER AT ONE THOUSAND FOUR HUNDRED EIGHTEEN POINT SIX 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020s is -8.18994 over 951 frames.
+442c020t VOLUME WAS MODEST AS THREE HUNDRED TWENTY SIX POINT SEVEN MILLION SHARES CHANGED HANDS COMPARED WITH THREE HUNDRED NINETY SIX POINT FIVE MILLION FRIDAY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020t is -8.27439 over 994 frames.
+442c020u THE ONE HUNDRED SHARE INDEX CLOSED SIX POINT EIGHT POINTS LOWER AT ONE THOUSAND SEVEN HUNDRED FIFTY NINE POINT NINE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020u is -8.01263 over 827 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 120 utterances
+442c020v UTILITY ANALYSTS HOWEVER EXPECT THE AGREEMENT TO BE COMPLETE WITHOUT MUCH DIFFICULTY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020v is -8.33915 over 599 frames.
+442c020w YESTERDAY MOODY'S INVESTORS SERVICE RAISED TO LILCO'S CARRIERS IN RECOGNITION OF THE IMPROVED OUTLOOK FOR STEADY FINANCIAL RECOVERY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020w is -8.25436 over 921 frames.
+442c020x ABOUT THREE POINT FIVE BILLION DOLLARS OF SECURITIES ARE AFFECTED 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020x is -7.99806 over 478 frames.
+442c020y HE ALSO SAID THE COMPANY FOR THE FIRST TIME WAS DROPPING TWO AND SPECIFICALLY FOR THE OVER THE COUNTER CONSUMER HEALTH CARE MARKET 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020y is -8.34164 over 819 frames.
+442c020z HE SAID SUCH PROJECTS WOULD BE MARKETED BY OTHER COMPANIES WITH EXPERIENCE IN THAT BUSINESS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c020z is -8.5335 over 570 frames.
+442c0210 HE DECLINED TO NAME SPECIFIC PRODUCTS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c0210 is -8.0817 over 344 frames.
+442c0211 SANOFI HAS RETURNED 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c0211 is -7.7051 over 340 frames.
+442c0212 FOREIGNERS ARE BACK TO NEGOTIATE THE CHINESE WILL BE AS TOUGH AS EVER 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c0212 is -8.15641 over 513 frames.
+442c0213 THAT'S FINE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c0213 is -7.36924 over 242 frames.
+442c0214 THE CHANGE IN THE FIRST OWNERSHIP ALSO SHOULD TRY AND RIGHT WING WHITES 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c0214 is -8.09898 over 593 frames.
+442c0215 MONEY MANAGERS TO SELL THEIR FIRMS THAT CAN CONTINUE WORKING FOR THEM TO THE LAST DECADE UNDER NEW OWNERSHIP THEY SAY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c0215 is -8.43268 over 760 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 130 utterances
+442c0216 IMPORTERS NOW USUALLY ARE LOCKED INTO LONG TERM CONTRACTS WITH INCENTIVES AIMED AT REDUCING THE PROBLEM 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 442c0216 is -8.48778 over 708 frames.
+443c0201 THE LABOR DEPARTMENT SAID NON FARM PAYROLL EMPLOYMENT INCREASED ROLE AS THREE HUNDRED THIRTY SEVEN THOUSAND LAST MONTH AFTER A REVISED THREE HUNDRED NINETEEN THOUSAND GAIN THE MONTH BEFORE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c0201 is -8.35419 over 1419 frames.
+443c0202 THE DEPARTMENT PREVIOUSLY SAID JOBS ROSE BY FOUR HUNDRED FORTY EIGHT THOUSAND IN JANUARY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c0202 is -8.42817 over 654 frames.
+443c0203 <UNK> USING A MEASURE THAT COUNTS THE MILITARY AMONG THE EMPLOYED THE RATE WAS UNCHANGED AT SIX POINT SIX PERCENT LAST MONTH 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c0203 is -8.16979 over 930 frames.
+443c0204 M. I. C. C. INVESTMENTS HISTORY SERIES OF PUBLICLY TRADED PREFERRED SHARES AND TEN SERIES A PRIVATELY HELD PREFERRED STOCK 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c0204 is -8.32674 over 1021 frames.
+443c0205 M. I. C. C. SAID IT INTENDS TO PAY THE DIVIDEND OR YEARS ON JULY THIRTY FIRST TO STOCK OF RECORD JULY SECOND 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c0205 is -8.11788 over 903 frames.
+443c0206 THE TORONTO BASED COMPANY PROVIDES MORTGAGE GUARANTEES TO THE CANADIAN REAL ESTATE INDUSTRY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c0206 is -8.04425 over 713 frames.
+443c0207 IT ISN'T CLEAR YET WHETHER THE CAMPAIGN WORKS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c0207 is -7.75108 over 509 frames.
+443c0208 LOCAL MEMBERSHIP TO TWENTY TWO PERCENT OF THE UNION HAS ALREADY WAS TWENTY EIGHT OF THE SEVENTY THREE NEW MEMBERS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c0208 is -8.36563 over 860 frames.
+443c0209 NONETHELESS THE UNION HAS MOVED THE EXPERIMENTAL RICHMOND VIRGINIA IT HAS RECEIVED INQUIRIES FROM OTHER UNIONS ABOUT ITS TACTICS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c0209 is -8.52724 over 908 frames.
+443c020a IN THE EFFORT TO RESTORE MARKET CONFIDENCE IN THE STATE OFFICIALS HAVE EMPHASIZED THE ECONOMY'S FUNDAMENTALS REMAIN SOUND 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020a is -8.30727 over 932 frames.
+443c020b THAT WAS CERTAINLY TRUE LAST WEEK 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020b is -8.10131 over 334 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 140 utterances
+443c020c BUT WITH ELECTRONIC INFLATION WAS SLOW IN CONSUMER SPENDING INVESTOR WERE HOLDING UP REASONABLY WELL 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020c is -8.44004 over 780 frames.
+443c020d AMONG EXPORT LED ELECTRICAL AND COMPUTER MAKERS JAPAN VICTOR COMPANY FELL FIFTY TO TWO THOUSAND THREE HUNDRED TWENTY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020d is -8.34415 over 1020 frames.
+443c020e KYOCERA WAS UP SIXTY FIVE THOUSAND TWO HUNDRED SIXTY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020e is -8.32224 over 568 frames.
+443c020f SONY WHICH LAST WEEK'S IN PREVIOUS SESSIONS THIS WEEK REBOUNDED EIGHTY FIVE THOUSAND ONE HUNDRED THIRTY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020f is -8.34802 over 796 frames.
+443c020g THE FOLLOWING OFFICERS DIRECTORS AND LARGE STOCKHOLDERS OF COMPANIES REPORTED CHANGES IN HOLDINGS UNDER THE SECURITIES EXCHANGE ACT OF NINETEEN THIRTY FOUR 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020g is -8.50691 over 1009 frames.
+443c020h THOSE IDENTIFIED AS BENEFICIAL OWNERS HOLD AT LEAST TEN PERCENT OF THE COMPANY'S EQUITY SECURITIES 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020h is -8.31064 over 660 frames.
+443c020i UNLESS OTHERWISE NOTED CHANGES INVOLVED DIRECT HOLDINGS OF COMMON STOCK AND TOOK PLACE IN SEPTEMBER AND OCTOBER OF NINETEEN EIGHTY SEVEN 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020i is -8.47812 over 895 frames.
+443c020j COMPANIES ARE LISTED WHERE TRANSACTIONS GENERALLY AGGREGATE TEN THOUSAND SHARES OR ONE HUNDRED THOUSAND DOLLARS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020j is -8.14723 over 828 frames.
+443c020k AFTER THE THIRD PERIOD ASHLAND COAL OPERATIONS BEGAN A PROCESS OF BECOMING AN INDEPENDENT COMPANY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020k is -8.48266 over 694 frames.
+443c020l WHEN ITS INITIAL PUBLIC OFFERING IS COMPLETED ASHLAND IS EXPECTED TO RETAIN A FORTY SIX PERCENT STAKE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020l is -8.48807 over 697 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 150 utterances
+443c020m THE NEW COMPANY ASHLAND COAL INCORPORATED IS LISTED ON THE NEW YORK STOCK EXCHANGE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020m is -8.55843 over 598 frames.
+443c020n THE OFFICIAL DECLINED TO ELABORATE ON PROJECTIONS FOR NON TELEPHONE OPERATIONS IT CITED SEVERAL INDICATORS OF RECENT GAINS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020n is -8.46006 over 875 frames.
+443c020o HE SAID THE COMPANY HAS ENTERED SIXTEEN SMALLER CELLULAR MARKETS A SHARE BID IS EXPECTED THIS FINANCIAL SERVICES WORK FORCE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020o is -8.0268 over 1123 frames.
+443c020p IN ADDITION A U. S. WEST A NEW SOLUTIONS BUSINESS APPLY COMMUNICATIONS INCORPORATED IS WORKING OUT WELL BEEN PERFORMING WELL OR SCHEDULES 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020p is -8.39063 over 1339 frames.
+443c020q M. C. I. PLANS TO BEGIN OFFERING THE SERVICE IN THE END OF THIS MONTH 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020q is -7.98825 over 539 frames.
+443c020r AS PART OF THE MARKETING PLAN THE COMPANY WILL BEGIN AIRING TELEVISION COMMERCIALS DURING PRIME TIME ON ELECTION NIGHT NEXT TUESDAY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020r is -8.33738 over 910 frames.
+443c020s APPLYING THE CAMPAIGN WILL BEGIN THE FOLLOWING DAY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020s is -8.01027 over 407 frames.
+443c020t VISA AND MASTERCARD HE'S VERY BECAUSE THEY ARE SET BY THE BANKS OR OTHER INSTITUTIONS THAT ISSUE THE CARDS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020t is -8.00445 over 960 frames.
+443c020u THESE RANGE UP TO ABOUT FORTY DOLLARS ANNUALLY FOR BASIC CARS THAN SIXTY DOLLARS A YEAR FOR GOLD CARDS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020u is -8.3173 over 867 frames.
+443c020v IN CERTAIN CASES BECAUSE ARE GIVEN FREE TO SUBSCRIBERS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020v is -8.30552 over 492 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 160 utterances
+443c020w THE AMERICAN STOCK EXCHANGE INDEX LOST ZERO POINT SEVEN THREE TO THREE HUNDRED EIGHTY POINT NINE FOUR 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020w is -8.20667 over 853 frames.
+443c020x VOLUME WAS EIGHTEEN MILLION ONE HUNDRED NINETY THOUSAND SHARES COMPARED WITH TEN MILLION FIVE HUNDRED FIFTY THOUSAND MONDAY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020x is -8.16415 over 984 frames.
+443c020y THERE WERE TWO HUNDRED FIFTY SIX ISSUES ADVANCING THREE HUNDRED THREE DECLINING AND TWO HUNDRED NINETY TWO UNCHANGED 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020y is -8.36684 over 860 frames.
+443c020z COMPANIES LISTED BELOW REPORTED QUARTERLY PROFIT SUBSTANTIALLY DIFFERENT FROM THE AVERAGE OF ANALYSTS' ESTIMATES 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c020z is -8.25463 over 824 frames.
+443c0210 THE COMPANIES ARE FOLLOWED BY AT LEAST THREE ANALYSTS AND HAD A MINIMUM FIVE CENT CHANGE IN ACTUAL EARNINGS PER SHARE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c0210 is -8.10864 over 883 frames.
+443c0211 ESTIMATED AND ACTUAL RESULTS INVOLVING LOSSES ARE OMITTED 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c0211 is -7.89121 over 596 frames.
+443c0212 YESTERDAY'S LOSERS INCLUDED AUTOMOBILES 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c0212 is -8.20285 over 399 frames.
+443c0213 PIONEER WAS DOWN TEN TO ONE THOUSAND NINE HUNDRED THIRTY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c0213 is -8.16405 over 542 frames.
+443c0214 NISSAN LOST THIRTY TO ONE THOUSAND FIVE HUNDRED TWENTY EIGHT WHILE IT WAS DOWN THREE TO TEN DAY AT TWO THOUSAND SIX HUNDRED TWENTY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 443c0214 is -8.46341 over 863 frames.
+444c0201 IN NINETEEN EIGHTY FIVE QUARTER THE OWNER AND OPERATOR OF HEALTH MAINTENANCE ORGANIZATIONS EARNED SIX POINT NINE MILLION DOLLARS OR TWENTY FOUR CENTS A SHARE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c0201 is -8.41504 over 1040 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 170 utterances
+444c0202 IT HAD FORECAST NINETEEN EIGHTY SIX FOURTH QUARTER LASTED EIGHTEEN MILLION DOLLARS TO TWENTY TWO MILLION DOLLARS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c0202 is -8.2087 over 775 frames.
+444c0203 REVENUE IN THE QUARTER MORE THAN DOUBLED TO THREE HUNDRED SIXTY TWO POINT FOUR MILLION DOLLARS FROM ONE HUNDRED FORTY NINE POINT TWO MILLION DOLLARS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c0203 is -8.30551 over 931 frames.
+444c0204 SEPARATELY NEW YORK STATE SOLD ABOUT SEVENTY SEVEN POINT ONE MILLION DOLLARS OF CERTIFICATES OF PARTICIPATION 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c0204 is -8.05442 over 784 frames.
+444c0205 THE ISSUE WAS PRICED AFTER AUCTION TO YIELD FROM THREE POINT FIVE PERCENT IN NINETEEN EIGHTY SEVEN TO FIVE POINT FIVE PERCENT IN NINETEEN NINETY SEVEN 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c0205 is -8.17275 over 989 frames.
+444c0206 THE UNSOLD BALANCE LATE YESTERDAY WAS ABOUT THIRTY SIX POINT THREE MILLION DOLLARS ACCORDING TO SHEARSON LEHMAN BROTHERS THE LEAD UNDERWRITER 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c0206 is -8.24362 over 921 frames.
+444c0207 THE ISSUE IS RATED SINGLE A BY MOODY'S AND SINGLE A MINUS BY S. AND P. 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c0207 is -7.87558 over 705 frames.
+444c0208 CITICORP AT TWENTY ONE POINT FIVE BILLION DOLLARS IN CAPITAL TO THE END OF LAST YEAR 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c0208 is -7.93098 over 676 frames.
+444c0209 AS ONE OF THE MOST ACQUISITION HUNGRY AND MAJOR BANKS CITICORP IS OFTEN REQUIRED BY REGULATORS TO RAISE ADDITIONAL CAPITAL TO THE CONDITION OF MAKING ACQUISITIONS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c0209 is -8.43445 over 1058 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 180 utterances
+444c020a IN ADDITION BANKS TO SELL THE BILL PASSED BY REGULATORS TO BOOST THEIR CAPITAL POSITION 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020a is -8.26014 over 692 frames.
+444c020b MANY CAST IS LIKELY TO AFFECT AT LEAST ONE OF THE PIZZA PENDING LEGISLATION THE SWEEPING TRADE BILL THAT IS NOW THE SUBJECT OF A HOUSE SENATE CONFERENCE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020b is -8.41195 over 988 frames.
+444c020c SENATE FINANCE CHAIRMAN LLOYD BENTSEN D. TEXAS SAID HE WOULD SPEED UP OR DOWN THE PACKAGE BECAUSE OF THE CRASH 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020c is -8.10678 over 879 frames.
+444c020d DIRECTORS APPOINTED DAVID OF GETTING THROUGH HE SAID 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020d is -7.88265 over 475 frames.
+444c020e SEVERAL AIRLINES THAT ARE SUPPOSED TO STANDARDS AND THEY CITE SOME ASPECTS OF COURT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020e is -7.96351 over 655 frames.
+444c020f SO FAR THEY DECLINED TO COMMENT PUBLICLY ON THE PLANT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020f is -7.75136 over 522 frames.
+444c020g STATE OFFICIALS HOWEVER SAY THE AIRLINES HAVE INDICATED THEY WILL COMPLY WITH MOST OF THE STANDARD DESIGN AS COMPETITORS DO 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020g is -8.15968 over 879 frames.
+444c020h AMONG EXPORT LED ELECTRICAL AND COMPUTER MAKERS JAPAN VICTOR COMPANY FELL FIFTY TO TWO THOUSAND THREE HUNDRED TWENTY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020h is -8.22587 over 919 frames.
+444c020i A PRICE THAT WAS AT THE SIXTY TO FIVE THOUSAND TWO HUNDRED SIXTY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020i is -7.92853 over 603 frames.
+444c020j SONY WHICH LAST PLACE IN PREVIOUS SESSIONS THIS WEEK REBOUNDED EIGHTY TO FIVE THOUSAND ONE HUNDRED THIRTY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020j is -8.2069 over 845 frames.
+444c020k LATELY COMPUTER RETAILING HAS BEEN TOUGH ON EVERYBODY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020k is -8.10384 over 463 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 190 utterances
+444c020l MELLON IS MAKING A MUCH MONEY ON IT UNTIL IT IS TRYING TO KELLY CHAIRMAN OF BELL ATLANTIC'S THE INVESTMENT DEVELOPMENT UNIT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020l is -8.23255 over 924 frames.
+444c020m WE GET A SUSTAINED A MODEST OPERATING LOSSES 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020m is -7.7933 over 457 frames.
+444c020n WE DIDN'T LIKE THAT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020n is -7.75509 over 236 frames.
+444c020o THE COMPANY DECLINED TO IDENTIFY THE BIDDERS BUT SAID IT RECEIVED OFFERS IN THE HIGH FORTY DOLLARS PER SHARE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020o is -8.30979 over 723 frames.
+444c020p IN RESPONSE AMFAC SHARES ROSE ONE DOLLAR TO FORTY SEVEN DOLLARS AND SEVENTY FIVE CENTS IN NEW YORK STOCK EXCHANGE COMPOSITE TRADING YESTERDAY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020p is -8.17411 over 1021 frames.
+444c020q THE OFFER IS INDICATED TOTAL PRICE FOR THE COMPANY EXCEEDING EIGHT HUNDRED MILLION DOLLARS BASED ON SEVENTEEN POINT TWO MILLION SHARES OUTSTANDING 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020q is -8.39723 over 914 frames.
+444c020r THE NEXT JULY INCREASE CAME EVEN A LOT OF MAKERS ARE OFFERING INCENTIVES ON FEWER CARS THIS YEAR THAN THEY DID LAST YEAR OR EARLY THIS YEAR 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020r is -8.16552 over 1113 frames.
+444c020s INVESTORS CAN MOVE AROUND SALES BUT NOT CREATE THEM SAID CHARLES BRADY AN OPPENHEIMER AND COMPANY HAD A STOCK ANALYST 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020s is -8.23674 over 923 frames.
+444c020t THE MARKET STAKE THEY SAID DEMAND IS DOLLAR CREATION OF INCENTIVES 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020t is -8.01052 over 611 frames.
+444c020u TENNESSEE AND PLANS TO BEGIN OFFERING DISSERVICE TO THE END OF THIS MONTH 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020u is -7.98377 over 540 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 200 utterances
+444c020v AS PART OF THE MARKETING PLAN THE COMPANY WILL BEGIN AIRING TELEVISION COMMERCIALS DURING PRIME TIME THE ELECTION NIGHT NEXT TUESDAY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020v is -8.17071 over 939 frames.
+444c020w TO PRINT MEDIA CAMPAIGN WILL BEGIN THE FOLLOWING DAY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020w is -7.63375 over 486 frames.
+444c020x THE AMERICAN STOCK EXCHANGE INDEX LOST ZERO POINT SEVEN THREE TO THREE HUNDRED EIGHTY POINT NINE FOUR 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020x is -8.12722 over 789 frames.
+444c020y VOLUME WAS EIGHTEEN MILLION ONE HUNDRED NINETY THOUSAND SHARES COMPARED WITH TEN MILLION FIVE HUNDRED FIFTY THOUSAND MONDAY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020y is -8.16059 over 805 frames.
+444c020z THERE WERE TWO HUNDRED FIFTY SIX ISSUES ADVANCING THREE HUNDRED THREE DECLINING AND TWO HUNDRED NINETY TWO UNCHANGED 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c020z is -8.36 over 773 frames.
+444c0210 THE INSTITUTE SAID CURRENT PREMIUMS ROSE THREE POINT ONE PERCENT IN THE SECOND QUARTER FAILING TO KEEP PACE WITH INFLATION WHICH ROSE FOUR POINT FIVE PERCENT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c0210 is -8.28868 over 1098 frames.
+444c0211 HOWEVER INVESTMENT INCOME WHICH REPRESENTS THIRTEEN PERCENT OF THE INDUSTRY'S REVENUES ROSE ELEVEN PERCENT IN THE QUARTER REFLECTING GAINS IN A RISING STOCK MARKET 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c0211 is -8.25067 over 1099 frames.
+444c0212 REALIZED CAPITAL GAINS INCREASED FORTY TWO PERCENT TO NINE HUNDRED NINE MILLION DOLLARS FROM SIX HUNDRED FORTY POINT NINE MILLION DOLLARS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c0212 is -8.1046 over 994 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 210 utterances
+444c0213 DETAILS OF THE FIRM'S OWNERSHIP ALSO SHOULD TURN ON A PRIORITY LIKE <UNK> 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c0213 is -8.34596 over 516 frames.
+444c0214 MANY MANAGERS TO SELL THEIR FIRMS THAT CAN CONTINUE WORKING FOR AN END TO THE LAST DECADE AND A NEW OWNERSHIP THEY SAID 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c0214 is -8.25612 over 823 frames.
+444c0215 IMPORTERS NOW ARE USUALLY ARE LOCKED INTO LONG TERM CONTRACTS THAT THE FED IS AIMED AT REDUCING DEBT PROBLEM 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 444c0215 is -8.24202 over 745 frames.
+445c0201 OWENS ILLINOIS SAID ITS SHARE PURCHASES WOULD BE FINANCED BY EXISTING CREDIT LINES AND NEW LINES TO BE ARRANGED 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c0201 is -8.33125 over 784 frames.
+445c0202 IF ALL TWENTY MILLION SHARES ARE PURCHASED THE COMPANY'S EQUITY WOULD BE REDUCED BY ABOUT ONE THIRD 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c0202 is -8.32825 over 632 frames.
+445c0203 A SPOKESMAN SAID THE COMPANY HAS ABOUT SIXTY MILLION SHARES OUTSTANDING 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c0203 is -8.13445 over 527 frames.
+445c0204 THE CONSENSUS WAS THEN A PIECE OF PAPER ISN'T REQUIRED SAID ONE U. S. DIPLOMAT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c0204 is -8.27876 over 622 frames.
+445c0205 NO ONE AT THE STATE DEPARTMENT WANTS TO LET SPIES AND <UNK> 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c0205 is -8.24763 over 408 frames.
+445c0206 WE'RE NOT APPEAR TO BE ADVOCATES OF THE K. G. B. 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c0206 is -8.18877 over 414 frames.
+445c0207 BUT THE PENALTIES FOR FAILURE ARE REAL 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c0207 is -8.04316 over 323 frames.
+445c0208 THE BUSINESS ISN'T JUST A JOB THAT THEIR INVESTMENT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c0208 is -8.05987 over 409 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 220 utterances
+445c0209 AND BOTH MORTGAGE THEIR HOMES TO SECURING THE LOANS THEY NEEDED TO START A BUSINESS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c0209 is -8.34183 over 494 frames.
+445c020a A LONG LIST OF OTHER WITNESSES HAVE ALSO TESTIFIED THAT WHILE NOW IN ITS FOURTH MONTH 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020a is -8.25223 over 620 frames.
+445c020b BUT AS MR. WEST UPON WHOM THE OUTCOME PROBABLY JAPAN'S MOST 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020b is -8.33288 over 549 frames.
+445c020c TESTIMONY CONCLUDED THIS WEEK BY CLOSING ARGUMENTS ARE SCHEDULED TO BEGIN MONDAY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020c is -8.43563 over 586 frames.
+445c020d GRAND AUTO SLID THREE TO FIFTEEN AND ONE EIGHTH ON THE AMERICAN STOCK EXCHANGE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020d is -8.44849 over 550 frames.
+445c020e THE COMPANY WHICH RUNS RETAIL AUTOMOTIVE STORES UNTIL SHEARSON LEHMAN BROTHERS ITS FINANCIAL ADVISER TO TERMINATE DISCUSSIONS TO SELL THE FIRM 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020e is -8.54653 over 941 frames.
+445c020f IT RECEIVED A PROPOSAL THAT ARE IN THE BEST INTEREST OF SHAREHOLDERS THE COMPANY SAID 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020f is -8.24844 over 614 frames.
+445c020g THE ORDER ISSUED LATE WEDNESDAY BY JUDGE AND MURPHY STEMS FROM A SUIT FILED IN FEDERAL COURT LAST MONTH BY THE UNION REPRESENTING MACHINISTS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020g is -8.42611 over 946 frames.
+445c020h THE SUIT SEEKS TO BLOCK THE CONTRACT WHICH WOULD HAVE RAISED TAILSPIN CUT BENEFITS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020h is -8.29484 over 584 frames.
+445c020i THE AIRLINE OPPOSE THE CONTRACT WITHOUT UNION BARGAINING 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020i is -8.16616 over 438 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 230 utterances
+445c020j YESTERDAY'S SESSION BEGAN WITH A SHARP CUT DECLINE IN THE INDUSTRIAL AVERAGE OF MORE THAN FORTY FIVE POINTS WHICH SOME MARKET ANALYSTS ATTRIBUTED THE FOREIGN SELLING 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020j is -8.40905 over 1070 frames.
+445c020k BUT IN A SURPRISING ALMOST EVERYONE STOCK PRICES BEGAN AS A DECLINE THAT PUSHED THE AVERAGE ABOVE WEDNESDAY'S CLOSE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020k is -8.48256 over 751 frames.
+445c020l ALTHOUGH THOSE GAINS IN READING DURING THE AFTERNOON STOCK PRICES STAYED WITHIN A NARROW RANGE UNTIL THE LAST HALF HOUR OF TRADING 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020l is -8.25511 over 907 frames.
+445c020m GILLETTE IS AGAIN A TARGET OF A MAJOR CORPORATE RAIDER 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020m is -8.28048 over 419 frames.
+445c020n CONISTON PARTNERS AND YORK SAID IT HAS A SIX POINT EIGHT PERCENT STAKE IN GILLETTE AND MAY SEEK TO ACQUIRE THE COMPANY OR GAIN SEATS ON ITS BOARD 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020n is -8.54109 over 906 frames.
+445c020o A LENGTHY FLIGHT IS LIKELY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020o is -7.98704 over 296 frames.
+445c020p ABOUT ALL THAT ASSESSMENT ECONOMISTS AND POLICY WILL BE PRETTY VOLATILE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020p is -8.34751 over 561 frames.
+445c020q IF THE DOLLAR STARTS TO PLUNGE THE FED MAY STEP UP ITS DEFENSE OF THE CURRENCY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020q is -8.36068 over 564 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 240 utterances
+445c020r IF THE FED PUSHES THE DOLLAR HIGHER THAN THEY COULD DEMAND FOR U. S. EXPORTS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020r is -8.38457 over 558 frames.
+445c020s LATELY COMPUTER RETAILING HAS BEEN TOUGH ON EVERYBODY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020s is -8.30723 over 446 frames.
+445c020t MELLON IS MAKING VERY MUCH MONEY ON IT ACKNOWLEDGES BRIAN J. KELLY CHAIRMAN OF BELL ATLANTIC'S INVESTMENT AND LOAN UNIT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020t is -8.43422 over 799 frames.
+445c020u WE HAD TO SUSTAIN SOME MODEST OPERATING LOSSES 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020u is -8.19738 over 380 frames.
+445c020v WE DIDN'T LIKE THAT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020v is -7.94499 over 255 frames.
+445c020w THE JURY AWARDED MR. SHEINBERG ONE HUNDRED FIVE MILLION DOLLARS A FIGURE BASED ON TEN YEARS OF PROFITS HEADS PROJECT BEEN COMPLETED 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020w is -8.41914 over 974 frames.
+445c020x CONTINENTAL STARTED THE APPEAL PROCESS BUT RECENTLY SETTLED THE CASE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020x is -8.43825 over 483 frames.
+445c020y NEITHER SIDE WOULD DISCLOSE TERMS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020y is -8.02031 over 333 frames.
+445c020z M. C. I. PLANS TO BEGIN OFFERING THE SERVICE OF THE END OF THE SWAMP 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c020z is -8.18084 over 520 frames.
+445c0210 AS PART OF THE MARKETING PLAN THE COMPANY WILL BEGIN AIRING TELEVISION COMMERCIALS DURING PRIME TIME ON ELECTION NIGHT NEXT TUESDAY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c0210 is -8.62132 over 773 frames.
+445c0211 A PANAMANIAN CAN'T HANDLE BEGAN THE FOLLOWING DAY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c0211 is -8.34561 over 388 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 250 utterances
+445c0212 THE REAL CHANGE THOUGH IT ISN'T HOW CHINA LACKS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c0212 is -8.01852 over 416 frames.
+445c0213 AMERICAN CHILD END 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c0213 is -8.16521 over 308 frames.
+445c0214 THE NUMBERS LOOK AMAZING TO GET INDUSTRIAL GROWTH RATES ABOVE TEN PERCENT THREE YEAR YEAR AFTER YEAR 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c0214 is -8.51667 over 665 frames.
+445c0215 AND AFTER A TEMPORARY DOWNTURN IN THE NEXT COUPLE OF YEARS THE NUMBERS PROBABLY WILL GO BACK UP 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c0215 is -8.42877 over 627 frames.
+445c0216 WHERE ELSE TO THE THIRD WORLD DEBTS ARE SO MUCH ENERGY AND PROGRESS AS IN CHINA 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 445c0216 is -8.25469 over 580 frames.
+446c0201 HERE ARE PRICE TRENDS ON THE WORLD'S MAJOR STOCK MARKETS AS CALCULATED BY MORGAN STANLEY CAPITAL INTERNATIONAL PERSPECTIVE GENEVA 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c0201 is -8.54362 over 814 frames.
+446c0202 TO MAKE THEM DIRECTLY COMPARABLE EACH INDEX IS BASED ON THE CLOSE OF NINETEEN SIXTY NINE EQUALING ONE HUNDRED 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c0202 is -8.38617 over 792 frames.
+446c0203 THE PERCENTAGE CHANGE IS SINCE YEAR END 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c0203 is -7.69298 over 386 frames.
+446c0204 THE CONSENSUS WAS THEN A PIECE OF PAPER IS REQUIRED SAID ONE U. S. DIPLOMAT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c0204 is -8.34278 over 636 frames.
+446c0205 NO ONE AT THE STATE DEPARTMENT WANTS TO LET US BY SAID 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c0205 is -8.11855 over 439 frames.
+446c0206 WE'RE NOT APPEAR TO BE ADVOCATES FOR THE K. G. B. 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c0206 is -7.91938 over 450 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 260 utterances
+446c0207 THAT DOESN'T MEAN MR. ICAHN HAS COMMITTED ANY WRONGDOING 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c0207 is -8.02872 over 453 frames.
+446c0208 BUT THE INVESTIGATION COULD MAKE SOME LENDERS WARY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c0208 is -7.89722 over 433 frames.
+446c0209 MR. ICAHN AND AN INVESTOR GROUP HE HEADS ALL SEVENTY TWO POINT SEVEN PERCENT OF T. W. A.'S SHARES 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c0209 is -8.09764 over 806 frames.
+446c020a SEPARATELY NEW YORK STATE'S OWN ABOUT SEVENTY SEVEN POINT ONE MILLION DOLLARS OF CERTIFICATES OF PARTICIPATION 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020a is -8.32234 over 694 frames.
+446c020b THE ISSUE WAS PRICED AFTER AUCTION TO YIELD FROM THREE POINT FIVE PERCENT IN NINETEEN EIGHTY SEVEN TO FIVE POINT FIVE PERCENT IN NINETEEN NINETY SEVEN 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020b is -8.22547 over 930 frames.
+446c020c THE UNSOLD BALANCE LATE YESTERDAY WAS ABOUT THIRTY SIX POINT THREE MILLION DOLLARS ACCORDING TO SHEARSON LEHMAN BROTHERS THE LEAD UNDERWRITER 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020c is -8.55991 over 843 frames.
+446c020d THE ISSUE IS RATED SINGLE A BY MOODY'S AND SINGLE A MINUS BY S. AND P. 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020d is -7.91102 over 648 frames.
+446c020e FIDELITY HAD CONTENDED THAT GENCORP ISN'T A QUALIFIED BROADCASTER BECAUSE IT FAILED TO DISCLOSE ALLEGEDLY IMPROPER POLITICAL CAMPAIGN CONTRIBUTIONS AND FOREIGN PAYMENTS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020e is -8.54189 over 1093 frames.
+446c020f UNDER THE PROPOSED TRANSACTION THE LOS ANGELES GROUP WOULD ACQUIRE THE K. H. J. LICENSING THEMSELVES AND DISMAY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020f is -8.48526 over 842 frames.
+446c020g THE CLOSELY HELD GROUP DOESN'T HAVE ANY SIGNIFICANT ASSETS ACCORDING TO WILLIAM J. SIMON ITS PRESIDENT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020g is -8.41514 over 734 frames.
+446c020h HE SAID THAT FOR THE FULL YEAR WANG IS AIMING FOR AN AFTER TAX PROFIT EQUALED THREE PERCENT TO FIVE PERCENT OF SALES 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020h is -8.30833 over 821 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 270 utterances
+446c020i HE SAID THE COMPANY'S GOAL IS TO HAVE FIFTEEN PERCENT TO TWENTY PERCENT REVENUE GROWTH TO ABOUT THREE POINT TWO BILLION DOLLARS FOR THE YEAR 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020i is -8.4065 over 766 frames.
+446c020j IN FISCAL NINETEEN EIGHTY SEVEN WHILE HAD A LOSS OF SEVENTY POINT SEVEN MILLION DOLLARS ON REVENUE OF TWO POINT EIGHT FOUR BILLION DOLLARS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020j is -8.34349 over 947 frames.
+446c020k IN MANY WAYS AS JUST ONE U. B. S. HAS DONE SAYS MR. SAID WAS NAMED PRESIDENT IN NINETEEN EIGHTY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020k is -8.39228 over 681 frames.
+446c020l ASSETS MORE THAN DOUBLED SINCE THEN TO ONE HUNDRED SIXTY POINT FOUR BILLION SWISS FRANCS ONE HUNDRED FIFTEEN POINT SIX BILLION DOLLARS IN NINETEEN EIGHTY SEVEN 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020l is -8.15672 over 1216 frames.
+446c020m NET INCOME ROSE ONE HUNDRED TWENTY FIVE PERCENT TO SEVEN HUNDRED FIFTY THREE BILLION SWISS FRANCS IN THE PERIOD 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020m is -8.33873 over 732 frames.
+446c020n THE REAL ESTATE INVESTMENT TRUST SAID IT WAS STILL HOPING TO REACH A NEW CREDIT ARRANGEMENTS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020n is -8.47002 over 601 frames.
+446c020o WE'RE NOT READY TO SAY WE'RE IN TECHNICAL DEFAULT A SPOKESMAN SAID 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020o is -8.15177 over 464 frames.
+446c020p IT'S STILL UNCLEAR 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020p is -7.62952 over 299 frames.
+446c020q THAT WAS STRIKING SPLIT BETWEEN THE SEXES WITH MEN MORE LIKELY THAN WOMEN TO FAVOR SPACE PROGRAMS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020q is -8.55972 over 655 frames.
+446c020r AMONG MEN FIFTY SIX PERCENT SAID U. S. WAS DOING TOO LITTLE IN SPACE EXPLORATION ALL YOUR WOMAN AGREED 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020r is -8.40667 over 844 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 280 utterances
+446c020s AMONG MEN FORTY ONE PERCENT SUPPORT BOOSTING THE SPACE EXPLORATION BUDGET COMPARED WITH NINETY PERCENT OF WOMEN 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020s is -8.64068 over 687 frames.
+446c020t ACCORDING TO THE AVERAGE ESTIMATE OF SEVEN ECONOMISTS SURVEYED BY DOW JONES CAPITAL MARKETS REPORT NEW ORDERS FOR U. S. DURABLE GOODS ROSE TWO POINT FOUR PERCENT LAST MONTH 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020t is -8.5529 over 1100 frames.
+446c020u THAT WOULD FOLLOW A TWO POINT TWO PERCENT DROP IN MAY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020u is -8.18733 over 428 frames.
+446c020v THE DAY'S TOP REPORT JUNE TWENTY SECOND GAME IS A BIG SURPRISE TO MOST ANALYSTS HAD HOPED FOR A POWERFUL BARLEY THAT DAY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020v is -8.43528 over 891 frames.
+446c020w DURABLE GOODS REPORT FREQUENTLY ARE HIGHLY VOLATILE FROM MONTH TO MONTH 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020w is -8.33118 over 548 frames.
+446c020x MANY ANALYSTS CITED EXPECTED INCREASE IN AIRCRAFT ORDERS IS A BIG REASON FOR THE ANTICIPATED JUNE INCREASE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020x is -8.21061 over 801 frames.
+446c020y CUSTOMERS ARE BIG A RANGE OF TWO PERCENT TO THREE PERCENT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020y is -7.97277 over 465 frames.
+446c020z REPUBLIC NEW YORK ROSE ONE AND ONE QUARTER TO FORTY FIVE AND SEVEN EIGHTHS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c020z is -8.14489 over 608 frames.
+446c0210 THE COMPANY SAID ITS EUROPEAN BANKING AFFILIATES OFFER PUBLIC PLANS TO RAISE MORE THAN FOUR HUNDRED FIFTY MILLION DOLLARS TO AN INTERNATIONAL OFFERING 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c0210 is -8.43746 over 1010 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 290 utterances
+446c0211 AFTER THE OFFERING REPUBLIC NEW YORK WILL HOLD ABOUT FORTY NINE PERCENT OF THE AFFILIATE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c0211 is -8.22473 over 638 frames.
+446c0212 CLOSELY HELD TIMES PUBLISHING ALSO TO WASHINGTON BASED PUBLICATIONS CONGRESSIONAL QUARTERLY WHICH COVERS CAPITOL HILL AND AVERTING WHICH COVERS STATE AND LOCAL GOVERNMENTS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c0212 is -8.50831 over 1228 frames.
+446c0213 IT ALSO OWNS THREE STATE BUSINESS MAGAZINES IN FLORIDA GEORGIA AND ARIZONA 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c0213 is -8.41844 over 560 frames.
+446c0214 INDUSTRY ANALYSTS BELIEVE THE COMPANY AT ABOUT SIX HUNDRED FIFTY MILLION DOLLARS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 446c0214 is -8.41787 over 564 frames.
+447c0201 I DON'T MEAN THAT CAN BE SOME IMPROVEMENTS AND REVENUE ACT OF NINETEEN EIGHTY SIX WHICH TOOK EFFECT THIS MONTH 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c0201 is -8.33572 over 741 frames.
+447c0202 I HAVE MY LIST OF CHANGES APPLY TO SUE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c0202 is -7.77206 over 390 frames.
+447c0203 PAN AM SURE YOU HAVE YOUR ON LOANS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c0203 is -7.66429 over 394 frames.
+447c0204 MR. ROBERTSON SAYS HE WILL BE ATTRACTED BY NINETEEN MULTIPLE TO STOP THE PROJECTED EARNINGS GROWTH RATE WAS EIGHTEEN PERCENT TO TWENTY PERCENT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c0204 is -8.43262 over 1002 frames.
+447c0205 HE DOESN'T 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c0205 is -7.50514 over 206 frames.
+447c0206 HE CITES THE WALL OF LARGE NUMBERS CAN YOU REALLY EXPECTED TO GROW AT A LARGE NUMBERS OF VERY LONG 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c0206 is -8.24572 over 762 frames.
+447c0207 WASHINGTON NATIONAL PAY NINETEEN DOLLARS A SHARE FOR THE TWO POINT SIX MILLION UNITED PRESIDENTIAL SHARES IT DIDN'T ALREADY OWN 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c0207 is -8.21826 over 917 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 300 utterances
+447c0208 BEFORE THE TRANSACTION WASHINGTON NATIONAL CAN FALL ONE POINT EIGHT MILLION UNITED PRESIDENTIAL SHARES OR FORTY ONE POINT FIVE PERCENT OF THE COMPANY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c0208 is -8.20493 over 1092 frames.
+447c0209 WASHINGTON NATIONAL IS A FINANCIAL SERVICES CONCERN 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c0209 is -7.91261 over 473 frames.
+447c020a UNITED PRESIDENTIAL HIS LIFE INSURANCE COMPANY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020a is -7.8783 over 462 frames.
+447c020b THESE ARE HIGHLY EDUCATED PEOPLE HE SAYS IN ENGLISH SO THE PATIENTS WILL UNDERSTAND 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020b is -8.06169 over 707 frames.
+447c020c SENDING THE REFUGEES PACT ISN'T THEIR IDEA IS JUST WHAT THE OPPOSITION POLITICIANS PERCENT IN OUR COUNTRY THESE THINGS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020c is -7.91921 over 1009 frames.
+447c020d I WILL TELL YOU WHY DID IN MY OFFICE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020d is -7.6864 over 451 frames.
+447c020e NORSK DATA EXPLORATION LIMITED SAID IT SOLD FOUR MILLION COMMON SHARES AT EIGHT DOLLARS EACH 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020e is -8.05082 over 740 frames.
+447c020f THEY WERE SOLD TO UNDERWRITERS LED BY PRUDENTIAL BACHE SECURITIES INCORPORATED 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020f is -8.05346 over 674 frames.
+447c020g THE UNDERWRITING GROUP HAS A THIRTY DAY OPTION TO ACQUIRE AN ADDITIONAL SIX HUNDRED THOUSAND SHARES AT EIGHT DOLLARS EACH 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020g is -8.04776 over 832 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 310 utterances
+447c020h THE TORONTO BASED GOLD MINING CONCERN SAID PROCEEDS WILL BE USED FOR GENERAL PURPOSES 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020h is -7.97911 over 741 frames.
+447c020i IT HAD FOURTEEN POINT FIVE MILLION COMMON SHARES OUTSTANDING BEFORE THE ISSUE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020i is -7.93515 over 630 frames.
+447c020j BUT THE EFFORTS TO RESTORE MARKET CONFIDENCE ADMINISTRATION OFFICIALS HAVE EMPHASIZED THAT THE ECONOMY'S FUNDAMENTALS REMAIN SILENT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020j is -8.11094 over 985 frames.
+447c020k THAT WAS SIMILAR TO LAST WEEK 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020k is -7.52369 over 366 frames.
+447c020l EMPLOYMENT LOOK STRONG INFLATION WAS SLOWING CONSUMER SPENDING AN INVESTMENT WERE HELD UP REASONABLY WELL 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020l is -8.32356 over 806 frames.
+447c020m ENVIRODYNE SAID IT EXPECTS SALES TO BE THE HIGHEST FOR ANY THIRD QUARTER THE COMPANY'S HISTORY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020m is -8.16941 over 708 frames.
+447c020n IT HAD SALES OF NINETY ONE POINT FIVE MILLION DOLLARS IN NINETEEN EIGHTY SIX THIRD QUARTER 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020n is -8.03603 over 720 frames.
+447c020o THE COMPANY EXPECTS TO REPORT RESULTS IN ABOUT TWO WEEKS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020o is -7.86429 over 526 frames.
+447c020p INDEPENDENT COMMITTEE WILL RECOMMEND THAT HOLDERS ACCEPT THE OFFER AT A MEETING EXPECTED TO BE HELD IN DECEMBER TO GO THE WAY SAID 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020p is -8.29167 over 883 frames.
+447c020q THE TRANSACTION REQUIRES APPROVAL OF A MAJORITY OF SHARES OF THE DOLLAR IS NOT AFFILIATED WITH MR. ICAHN 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020q is -8.19882 over 906 frames.
+447c020r THE INVESTOR NOW OWNS SEVENTY THREE PERCENT OF THE COMPANY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020r is -7.8884 over 532 frames.
+447c020s BUT WHILE THE FED STANCE THAT IS COMING UNDER INCREASING ATTACK FROM ALL SIDES 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020s is -8.01266 over 697 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 320 utterances
+447c020t SOME CRITICS INCLUDING HIGHER REAGAN ADMINISTRATION OFFICIALS ARE RAISING NEW LINE OF DEFENSE POLICIES TO TIDE IT COULD CAUSE A RECESSION NEXT YEAR 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020t is -8.14497 over 1147 frames.
+447c020u OTHER ANALYSTS SAY THE FED NEEDS TO TIGHTEN POLICY FURTHER TO SUPPORT THE DOLLAR DIDN'T PREVENT INFLATION 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020u is -8.03675 over 851 frames.
+447c020v MANHATTAN INDUSTRIES CONTINUE TO TRADE ABOVE THE OFFER PRICE YESTERDAY INDICATING THE MARKET EXPECTS A HIGHER BID 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020v is -8.25574 over 830 frames.
+447c020w THE SHARES CLOSED AT EIGHTEEN DOLLARS AND TWENTY FIVE CENTS UP TWENTY FIVE CENTS ON THE NEW YORK STOCK EXCHANGE COMPOSITE TAPE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020w is -8.16164 over 943 frames.
+447c020x SALE OF SHARES CLOSED UNCHANGED ON THE BIG BOARD AT NINE DOLLARS AND SEVENTY FIVE CENTS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020x is -8.01528 over 750 frames.
+447c020y INCREASINGLY PEOPLE WHO TEST POSITIVE IN CHINA SUPPORT GROUPS THAT HAVE SPRUNG UP ACROSS THE COUNTRY IN THE PAST YEAR 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020y is -8.37853 over 786 frames.
+447c020z SEVERAL CITIES HAVE VERSIONS OF THE BRITISH ORGANIZATION BOUGHT A POSITIVE 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c020z is -8.01035 over 617 frames.
+447c0210 AND LAST OCTOBER NEW YORK'S BOUGHT A POSITIVE ALREADY HAVE SIXTEEN GROUPS MEET EVERY TWO WEEKS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c0210 is -8.29529 over 777 frames.
+447c0211 LATELY COMPUTER RETAILING HAS BEEN TOUGH ON EVERYBODY 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c0211 is -8.12998 over 487 frames.
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:173) Processed 330 utterances
+LOG (compute-mfcc-feats:main():compute-mfcc-feats.cc:177)  Done 330 out of 330 utterances.
+447c0212 NO ONE IS MAKING FOR MUCH MONEY ON THE MIDDLE AGES BRIAN J. KELLY CHAIRMAN OF BELL ATLANTIC'S INVESTMENT DEVELOPMENT UNITS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c0212 is -8.21819 over 950 frames.
+LOG (compute-cmvn-stats:main():compute-cmvn-stats.cc:168) Done accumulating CMVN stats for 330 utterances; 0 had errors.
+447c0213 WE HAVE TO SUSTAIN ITS MODEST OPERATING LOSSES 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c0213 is -7.74731 over 472 frames.
+447c0214 WE DIDN'T LIKE THAT <UNK> 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c0214 is -7.70834 over 296 frames.
+LOG (apply-cmvn:main():apply-cmvn.cc:103) Applied cepstral mean normalization to 330 utterances, errors on 0
+447c0215 SHEARSON LEHMAN HUTTON INCORPORATED'S INDEX OF LONG TERM TREASURY BONDS TO DENVER IS MORE INTERESTED IN ADDITION VERY CLOSE TO WEDNESDAY'S CLOSING LEVELS 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c0215 is -8.30163 over 1134 frames.
+447c0216 THE INDEX ENDED WITH A DECLINE OF ZERO POINT THREE FIVE POINTS TO ONE THOUSAND TWO HUNDRED SEVENTY TWO POINT ONE EIGHT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c0216 is -8.04263 over 973 frames.
+447c0217 THE LOW WAS ONE THOUSAND TWO HUNDRED SEVENTY POINT ONE NINE OF THE HIGH WAS ONE THOUSAND TWO HUNDRED SEVENTY THREE POINT EIGHT EIGHT 
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:196) Log-like per frame for utterance 447c0217 is -8.04951 over 1155 frames.
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:209) Time taken [excluding initialization] 319.047s: real-time factor assuming 100 frames/sec is 0.132316
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:212) Done 330 utterances, failed for 0
+LOG (gmm-decode-faster:main():gmm-decode-faster.cc:214) Overall log-likelihood per frame is -8.23288 over 241125 frames.
+compute-wer --text --mode=present ark:test.ref ark:test.hyp 
+
+real	5m25.101s
+user	5m41.493s
+sys	0m1.422s

@@ -1,0 +1,6 @@
+digraph {
+m_file_list_reader -> m_pcm_reader -> m_mfcc_extractor -> m_cmvn_applier -> m_delta_adder;
+m_delta_adder -> m_gmm_decoder_wsj;
+m_delta_adder -> m_gmm_decoder_hub4;
+m_delta_adder -> m_gmm_decoder_icsi;
+}
