@@ -12,8 +12,18 @@
 *.la
 *.a
 
+TODO.md
+
 build/
+
+tools/Makefile
+tools/Makefile.new
 tools/kaldi
 tools/libcppa
 tools/graphviz
 tools/graphviz-2.30.1
+
+egs/data/aurora4
+egs/models/wsj
+egs/models/hub4
+egs/models/icsi
