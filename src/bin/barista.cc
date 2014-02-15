@@ -8,6 +8,7 @@
 #include "feat/compute-mfcc-feats.h"
 #include "feat/apply-cmvn.h"
 #include "feat/add-deltas.h"
+#include "feat/filter.h"
 #include "gmm/gmm-decode-faster-online.h"
 #include "util/common-utils.h"
 #include "gvc.h"
@@ -76,6 +77,8 @@ bool SpawnActors(adjacency_list_type& graph, ptree& config,
       actor_map->insert(make_pair(actor_name, spawn<ApplyCMVN>(actor_name, subscribers, config)));
     } else if (actor_type == "AddDeltas") {
       actor_map->insert(make_pair(actor_name, spawn<AddDeltas>(actor_name, subscribers, config)));
+    } else if (actor_type == "Filter") {
+      actor_map->insert(make_pair(actor_name, spawn<Filter>(actor_name, subscribers, config)));
     } else if (actor_type == "GMMDecodeFasterOnline") {
       actor_map->insert(make_pair(actor_name, spawn<GMMDecodeFasterOnline>(actor_name, subscribers, config)));
     } else if (actor_type == "VectorWriter") {

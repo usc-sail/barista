@@ -104,7 +104,8 @@ add_library(barista-io STATIC
 )
 
 add_library(barista-feat STATIC 
-  feat/compute-mfcc-feats.cc feat/apply-cmvn.cc feat/add-deltas.cc 
+  feat/compute-mfcc-feats.cc feat/apply-cmvn.cc feat/add-deltas.cc
+  feat/filter.cc
 )
 
 add_library(barista-decoder STATIC 
