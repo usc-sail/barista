@@ -1,0 +1,5 @@
+digraph {
+file_list_reader -> pcm_reader -> pcm_writer;
+pcm_reader -> filter1 -> filter1_writer;
+pcm_reader -> filter2 -> filter2_writer;
+}
