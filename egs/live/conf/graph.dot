@@ -1,0 +1,3 @@
+digraph {
+m_command_line -> m_portaudio_reader -> m_mfcc_extractor -> m_cmvn_applier -> m_delta_adder -> m_gmm_decoder;
+}
