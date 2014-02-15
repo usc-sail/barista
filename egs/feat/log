@@ -1,0 +1,8 @@
+barista conf/actors.ini conf/graph.dot 
+ ++  m_file_list_reader: file list: pcm.list
+ ++  m_pcm_writer: sink file: pcm.txt
+ ++  m_mfcc_writer: sink file: mfcc.txt
+ ++  m_cmvn_writer: sink file: cmvn.txt
+ ++  m_delta_writer: sink file: delta.txt
+ ++  m_file_list_reader: Finished reading file list: pcm.list
+ ++  Done

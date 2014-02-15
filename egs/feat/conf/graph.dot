@@ -1,0 +1,7 @@
+digraph {
+m_file_list_reader -> m_pcm_reader -> m_mfcc_extractor -> m_cmvn_applier -> m_delta_adder;
+m_pcm_reader -> m_pcm_writer;
+m_mfcc_extractor -> m_mfcc_writer;
+m_cmvn_applier -> m_cmvn_writer;
+m_delta_adder -> m_delta_writer;
+}
