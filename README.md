@@ -1,52 +1,58 @@
-barista
-=======
+# barista
 
-Barista is an open-source framework for concurrent speech processing from 
-USC-SAIL.
+Barista is an open-source framework for concurrent speech processing 
+developed and maintained by the 
+[Signal Analysis and Interpretation Lab](http://sail.usc.edu) (SAIL) at USC.
 
-Evil minions are working 24/7 to bring you the preview release of Barista.
-
-Supported Operating Systems
----------------------------
+## Supported Operating Systems
 
 * Linux
 * Mac OS X
 
-Supported Compilers
--------------------
+## Supported Compilers
 
-Barista relies on C++11 features, hence we need a recent C++ compiler.
+We need a recent C++ compiler since barista relies on C++11 features.
   
-* GCC >= 4.7 [GCC-4.8 recommended]
-* Clang >= 3.2 [Not tested yet.]
+* G++ >= 4.7 [G++-4.8 recommended]
+* Clang >= 3.2 [Not tested]
 
-Dependencies
-------------
+Here are the instructions for installing G++-4.8 on Ubuntu 12.04 LTS.
 
-Barista depends on Kaldi (and its dependencies including portaudio), libcppa, 
-GraphViz, Boost and pthread (on Linux). We will also need CMake for 
-installation. 
+    add-apt-repository ppa:ubuntu-toolchain-r/test
+    apt-get update
+    apt-get install g++-4.8
 
-Rudimentary scripts for installing barista dependencies (except Boost, pthread 
-and CMake) are provided under the tools directory. Note that these scripts 
-assume you have GCC-4.8 installed on your machine.
+## Dependencies
 
-Before trying to install Kaldi, make sure you have CMake, git, svn, aclocal, 
-libtoolize (or glibtoolize), libzlib and libatlas installed on your system. 
-If you are missing any of these tools, use a package manager to install them.
+Barista depends on [Kaldi](http://kaldi.sourceforge.net) (and its dependencies
+including portaudio), [libcppa](https://github.com/Neverlord/libcppa), 
+[GraphViz](http://www.graphviz.org) and [Boost](http://www.boost.org).
+
+Before installing barista, make sure you have CMake, git, svn, aclocal, 
+libtoolize (or glibtoolize), zlib, libatlas and Boost installed on your 
+system. If you are missing any of these tools, you can use a package manager to
+install them. Here are the instructions for installing these packages on
+Ubuntu 12.04 LTS.
+
+    apt-get install build-essential git subversion cmake automake libtool
+    apt-get install zlib1g-dev libboost-all-dev libatlas-dev libatlas-base-dev 
+
+Rudimentary scripts for installing Kaldi, libcppa and GraphViz are provided 
+under the tools directory. Note that these scripts assume you have G++-4.8 
+installed on your machine.
 
     cd barista/tools
     ./install_kaldi.sh 4      # 4 jobs will be run in parallel (make -j 4) 
     ./install_libcppa.sh      # if not specified, number of jobs defaults to 1
     ./install_graphviz.sh
 
-Installation
-------------
+## Installation
 
-Unfortunately Barista build process is still semi-automatic. 
-You might need to edit `barista/src/CMakeLists.txt` file to match your setup 
-before building Barista. You will likely need to copy some flags from Kaldi
-installation scripts. See `barista/src/CMakeLists.txt` for details.
+Unfortunately Barista build process is still semi-automatic. If the following
+instructions fail for some reason, you might need to edit 
+`barista/src/CMakeLists.txt` to match your setup before building barista. 
+You will likely need to copy some flags from Kaldi installation scripts. See 
+`barista/src/CMakeLists.txt` for details.
 
     mkdir barista/build
     cd barista/build
