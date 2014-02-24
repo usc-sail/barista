@@ -13,6 +13,7 @@
 *.a
 
 TODO.md
+HOWTO.md
 
 build/
 
