@@ -13,7 +13,7 @@ fi
 echo "**** Installing libcppa"
 
 (
-  git clone git://github.com/Neverlord/libcppa.git
+  git clone --branch V0.8.1 git://github.com/Neverlord/libcppa.git
 
   if [ ! -e libcppa ]; then
     echo "**** Download of libcppa failed"
@@ -21,7 +21,7 @@ echo "**** Installing libcppa"
   else
     cd libcppa
     patch --verbose -N -p0 < ../libcppa.patch
-    ./configure --prefix=`pwd` --with-gcc=g++-4.8
+    ./configure --prefix=`pwd` --with-gcc=g++-4.8 --no-protobuf-examples
     make -j $njobs
     make install
     cd ..
