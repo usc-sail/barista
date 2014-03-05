@@ -13,7 +13,7 @@ fi
 echo "**** Installing Kaldi"
 
 (
-  svn co svn://svn.code.sf.net/p/kaldi/code/trunk kaldi
+  svn co svn://svn.code.sf.net/p/kaldi/code/trunk@3678 kaldi
   if [ ! -e kaldi ]; then
     echo "**** Download of Kaldi failed"
     exit 1

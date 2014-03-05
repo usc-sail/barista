@@ -1,23 +1,42 @@
---- Makefile	2013-10-17 22:00:28.000000000 -0700
-+++ Makefile.new	2013-10-17 22:18:19.000000000 -0700
-@@ -47,13 +47,14 @@
+--- Makefile	2014-03-04 18:28:50.000000000 -0800
++++ Makefile.new	2014-03-04 18:30:44.000000000 -0800
+@@ -1,6 +1,6 @@
+ # SHELL += -x
+ 
+-CXX = g++
++CXX = g++-4.8
+ 
+ all: check_required_programs sph2pipe atlas irstlm_tgt sclite_tgt openfst_tgt
+ 
+@@ -12,7 +12,7 @@
+ 	which libtoolize || which glibtoolize
+ 	which svn
+ 	which gcc
+-	which g++
++	which $(CXX)
+ 	which patch
+ 
+ clean: openfst_cleaned sclite_cleaned  irstlm_cleaned
+@@ -50,7 +50,7 @@
  
  openfst-1.3.2/Makefile: openfst-1.3.2/.patched
  		cd openfst-1.3.2/; \
--		./configure --prefix=`pwd` --enable-static --enable-shared --enable-far --enable-ngram-fsts
-+		./configure --prefix=`pwd` --enable-static --enable-shared --enable-far --enable-ngram-fsts CXX=g++-4.8
+-		LIBS="-ldl" ./configure --prefix=`pwd` --enable-static --enable-shared --enable-far --enable-ngram-fsts
++		LIBS="-ldl" ./configure --prefix=`pwd` --enable-static --enable-shared --enable-far --enable-ngram-fsts CXX=$(CXX)
  
  
+ # patches for openfst. openfst_gcc41up.patch is a patch for openfst to \
+@@ -58,7 +58,8 @@
  .PHONY: openfst-1.3.2/.patched
  openfst-1.3.2/.patched: | openfst-1.3.2_tgt
  		-cd openfst-1.3.2/src/include/fst; \
 -		patch -p0 -N < ../../../../openfst.patch;
 +		patch -p0 -N < ../../../../openfst.patch; \
 +		patch -p0 -N < ../../../../openfst.patch.2;
+ 		$(CXX) -dumpversion | awk '{if(NR==1 && $$1>"4.1") print "cd openfst-1.3.2/src/include/fst; patch -p0 -N < ../../../../extras/openfst_gcc41up.patch"}' | sh -
  		touch $@ 	
  
- openfst-1.3.2_tgt: openfst-1.3.2.tar.gz
-@@ -75,6 +76,7 @@
+@@ -81,6 +82,7 @@
  .PHONY: sctk_patched
  sctk_patched: | sctk-2.4.0
  		cd sctk-2.4.0/; \
@@ -25,12 +44,12 @@
  		for x in src/asclite/core/recording.h src/asclite/core/recording.cpp; do \
  			sed 's/Filter::Filter/::Filter/' $$x > tmpf; mv tmpf $$x; \
  		done;
-@@ -96,16 +98,18 @@
+@@ -102,16 +104,18 @@
  irstlm/Makefile: irstlm/.patched
  		cd irstlm; \
  		(./regenerate-makefiles.sh || ./regenerate-makefiles.sh) && \
 -		./configure --prefix `pwd` 
-+		./configure --prefix `pwd` CXX=g++-4.8
++		./configure --prefix `pwd` CXX=$(CXX)
  
  
  irstlm/.patched: | irstlm
