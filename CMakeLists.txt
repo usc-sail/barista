@@ -112,8 +112,8 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
   set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}")
   
-  set (PORTAUDIO_DEPENDENCIES "rt")
-  # set (PORTAUDIO_DEPENDENCIES "rt asound jack")
+  set (PORTAUDIO_DEPENDENCIES "-lrt")
+  # set (PORTAUDIO_DEPENDENCIES "-lrt -lasound -ljack")
 
 elseif (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
   # Typical flags for Mac OS X
@@ -186,11 +186,11 @@ target_link_libraries(barista
   ${KALDI_SRC_DIR}/tree/kaldi-tree.a
   ${KALDI_SRC_DIR}/util/kaldi-util.a
   ${KALDI_SRC_DIR}/base/kaldi-base.a
+  ${ATLAS_LIBRARIES}  # empty on mac os x
   ${OPENFST_LIB_DIR}/libfst.a
   ${PORTAUDIO_LIB_DIR}/libportaudio.a
-  ${PORTAUDIO_DEPENDENCIES}  # rempty on mac os x
-  ${ATLAS_LIBRARIES}  # empty on mac os x
   dl m pthread
+  ${PORTAUDIO_DEPENDENCIES}  # empty on mac os x
 )
 
 
