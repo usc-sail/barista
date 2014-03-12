@@ -1,6 +1,6 @@
 # SHELL += -x
 
-CC  = gcc
+CC  = gcc-4.8
 CXX = g++-4.8
 
 # We do not support clang yet
@@ -43,11 +43,11 @@ distclean:
 kaldi: kaldi/src/.install
 
 kaldi/src/.install: kaldi/src/.depend kaldi/tools/portaudio/.install
-	cd kaldi/src && $(MAKE) && $(MAKE) online && \
+	cd kaldi/src && $(MAKE) CXX=$(CXX) && $(MAKE) online CXX=$(CXX) && \
 	touch .install .depend .configure
 
 kaldi/src/.depend: kaldi/src/.configure
-	$(MAKE) -C kaldi/src depend
+	$(MAKE) -C kaldi/src CXX=$(CXX) depend
 
 kaldi/src/.configure: kaldi/tools/.install
 	cd kaldi/src && ./configure
@@ -56,10 +56,10 @@ kaldi/tools/portaudio/.install: kaldi/.checkout
 	cd kaldi/tools && ./install_portaudio.sh && touch portaudio/.install
 
 kaldi/tools/.install: kaldi/.checkout
-	$(MAKE) -C kaldi/tools && touch $@
+	$(MAKE) -C kaldi/tools CXX=$(CXX) && touch $@
 
 kaldi/.checkout:
-	svn co svn://svn.code.sf.net/p/kaldi/code/trunk@3732 kaldi && touch $@
+	svn co svn://svn.code.sf.net/p/kaldi/code/trunk@3755 kaldi && touch $@
 
 .PHONY: graphviz
 graphviz: graphviz/.install
@@ -93,6 +93,6 @@ libcppa/.configure: libcppa/.checkout
 libcppa/.checkout:
 	git clone git://github.com/Neverlord/libcppa.git && \
 	cd libcppa && git checkout V0.8.1 && \
-	sed -i.bk '2s:CXX:C CXX:' CMakeLists.txt && \
-	touch .checkout
+	sed -i.bk '2s:CXX:C CXX:; 3s:^:set(CMAKE_MACOSX_RPATH 1):' CMakeLists.txt \
+	&& touch .checkout
 
