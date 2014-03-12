@@ -11,7 +11,7 @@
 #include "feat/filter.h"
 #include "gmm/gmm-decode-faster-online.h"
 #include "util/common-utils.h"
-#include "gvc.h"
+#include "graphviz/gvc.h"
 #include "boost/property_tree/ini_parser.hpp"
 
 using namespace std;
