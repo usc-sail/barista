@@ -25,6 +25,7 @@ Usage: $0 [OPTION]...
     --prefix=PREFIX             installation directory         [/usr/local]
 
   Required Packages in Non-Standard Locations:
+    --with-atlas=PATH           path to ATLAS    install root
     --with-boost=PATH           path to Boost    install root
     --with-graphviz=PATH        path to GraphViz install root
     --with-kaldi=PATH           path to Kaldi    install root  [tools/kaldi]
@@ -93,6 +94,9 @@ while [ $# -ne 0 ]; do
             ;;
         --prefix=*)
             append_cache_entry CMAKE_INSTALL_PREFIX PATH $optarg
+            ;;
+        --with-atlas=*)
+            append_cache_entry ATLAS_ROOT PATH $optarg
             ;;
         --with-boost=*)
             append_cache_entry BOOST_ROOT PATH $optarg

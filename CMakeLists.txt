@@ -52,21 +52,19 @@ set(KALDI_TOOLS_DIR ${KALDI_ROOT}/tools)
 if (NOT ATLAS_ROOT)
   set(ATLAS_ROOT ${KALDI_TOOLS_DIR}/ATLAS)
 endif()
+
 if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   set(ENV{ATLAS_DIR} ${ATLAS_ROOT})
   find_package(Atlas REQUIRED)
+else()
+  set(ATLAS_INCLUDE_DIR ${ATLAS_ROOT}/include)
 endif()
-
-# set(ATLAS_INCLUDE_DIR ${KALDI_TOOLS_DIR}/ATLAS/include)
-# # set(ATLAS_LIB_DIR ${KALDI_TOOLS_DIR}/ATLAS/build/lib)
-# set(ATLAS_LIB_DIR /usr/lib)
 
 set(OPENFST_INCLUDE_DIR ${KALDI_TOOLS_DIR}/openfst/include)
 set(OPENFST_LIB_DIR ${KALDI_TOOLS_DIR}/openfst/lib)
 
 set(PORTAUDIO_INCLUDE_DIR ${KALDI_TOOLS_DIR}/portaudio/install/include)
 set(PORTAUDIO_LIB_DIR ${KALDI_TOOLS_DIR}/portaudio/install/lib)
-
 
 # Prevent falling back to system paths when using a custom Boost prefix.
 if (BOOST_ROOT)
@@ -98,6 +96,10 @@ set(CMAKE_INSTALL_RPATH ${CPPA_LIB_DIR})
 # 1. Copy the flags set by LDFLAGS and LDLIBS in KALDI_ROOT/src/kaldi.mk      #
 # 2. Copy the frameworks set by SHARED_FLAGS in                               #
 #    KALDI_ROOT/tools/portaudio/Makefile                                      #
+#                                                                             #
+# How to set portaudio dependencies for Linux systems:                        #
+# 1. Copy the libs listed under LIBS and DLL_LIBS in                          #
+#    KALDI_ROOT/tools/portaudio/Makefile                                      #
 ###############################################################################
 
 
@@ -109,6 +111,9 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DHAVE_ATLAS -pthread")
 
   set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}")
+  
+  set (PORTAUDIO_DEPENDENCIES "rt")
+  # set (PORTAUDIO_DEPENDENCIES "rt asound jack")
 
 elseif (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
   # Typical flags for Mac OS X
@@ -125,11 +130,7 @@ set_source_files_properties(src/decoder/faster-online-decoder.cc PROPERTIES COMP
 
 
 ###############################################################################
-# Add targets                                                                 #
-###############################################################################
-# If you are on Mac OS X, you probably don't need to change anything beyond   #
-# this point. If you are on Linux, you might have to change the extra libs    #
-# added depending on your ATLAS and PORTAUDIO setup.                          #
+# Add targets (You probably don't need to change anything beyond this point)  #
 ###############################################################################
 
 link_directories(${OPENFST_LIB_DIR} ${CPPA_LIB_DIR})
@@ -187,26 +188,10 @@ target_link_libraries(barista
   ${KALDI_SRC_DIR}/base/kaldi-base.a
   ${OPENFST_LIB_DIR}/libfst.a
   ${PORTAUDIO_LIB_DIR}/libportaudio.a
+  ${PORTAUDIO_DEPENDENCIES}  # rempty on mac os x
+  ${ATLAS_LIBRARIES}  # empty on mac os x
   dl m pthread
 )
-
-
-###############################################################################
-# Set extra libraries needed for Linux systems                                #
-###############################################################################
-# How to set additional libraries:                                            #
-# 1. Copy the libs listed under LDLIBS in KALDI_ROOT/src/kaldi.mk             #
-# 2. Copy the libs listed under LIBS and DLL_LIBS in                          #
-#    KALDI_ROOT/tools/portaudio/Makefile                                      #
-###############################################################################
-
-if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-  target_link_libraries(barista 
-    ${ATLAS_LIBRARIES}
-    # lapack cblas atlas f77blas 
-    rt asound jack
-  )
-endif()
 
 
 ###############################################################################
