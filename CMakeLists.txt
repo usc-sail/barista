@@ -96,7 +96,7 @@ set(CMAKE_INSTALL_RPATH ${CPPA_LIB_DIR})
 set (CMAKE_CXX_FLAGS 
     "${CMAKE_CXX_FLAGS} -msse -msse2 -fPIC -Wall -DKALDI_DOUBLEPRECISION=0 -DHAVE_POSIX_MEMALIGN -DHAVE_EXECINFO_H=1 -DHAVE_CXXABI_H -Winit-self -Wno-unused-local-typedefs -Wno-sign-compare -flax-vector-conversions -fpermissive -g -std=c++11")
 
-if (c MATCHES "Linux")
+if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   # Typical flags for Linux
   set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DHAVE_ATLAS -pthread")
 
