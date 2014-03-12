@@ -49,9 +49,17 @@ set(KALDI_SRC_DIR ${KALDI_ROOT}/src)
 set(KALDI_TOOLS_DIR ${KALDI_ROOT}/tools)
 
 # TODO: we should look into kaldi/src/kaldi.mk to figure out ATLAS paths.
-set(ATLAS_INCLUDE_DIR ${KALDI_TOOLS_DIR}/ATLAS/include)
-# set(ATLAS_LIB_DIR ${KALDI_TOOLS_DIR}/ATLAS/build/lib)
-set(ATLAS_LIB_DIR /usr/lib)
+if (NOT ATLAS_ROOT)
+  set(ATLAS_ROOT ${KALDI_TOOLS_DIR}/ATLAS)
+endif()
+if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+  set(ENV{ATLAS_DIR} ${ATLAS_ROOT})
+  find_package(Atlas REQUIRED)
+endif()
+
+# set(ATLAS_INCLUDE_DIR ${KALDI_TOOLS_DIR}/ATLAS/include)
+# # set(ATLAS_LIB_DIR ${KALDI_TOOLS_DIR}/ATLAS/build/lib)
+# set(ATLAS_LIB_DIR /usr/lib)
 
 set(OPENFST_INCLUDE_DIR ${KALDI_TOOLS_DIR}/openfst/include)
 set(OPENFST_LIB_DIR ${KALDI_TOOLS_DIR}/openfst/lib)
@@ -124,7 +132,7 @@ set_source_files_properties(src/decoder/faster-online-decoder.cc PROPERTIES COMP
 # added depending on your ATLAS and PORTAUDIO setup.                          #
 ###############################################################################
 
-link_directories(${ATLAS_LIB_DIR} ${OPENFST_LIB_DIR} ${CPPA_LIB_DIR})
+link_directories(${OPENFST_LIB_DIR} ${CPPA_LIB_DIR})
 
 include_directories(
   ${BARISTA_SRC_DIR} 
@@ -194,8 +202,9 @@ target_link_libraries(barista
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   target_link_libraries(barista 
-    lapack cblas atlas f77blas 
-    rt #asound jack
+    ${ATLAS_LIBRARIES}
+    # lapack cblas atlas f77blas 
+    rt asound jack
   )
 endif()
 
