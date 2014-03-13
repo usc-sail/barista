@@ -67,7 +67,7 @@ installing Kaldi and provide this location to barista configure script using
 portaudio installation provided by Kaldi. If you choose to use an existing
 Kaldi installation, make sure you have that library and portaudio installed.
 Similarly, if you already have a libcppa V0.8.1 installation that was compiled
-with g++ > 4.7, you may skip installing libcppa and provide this location to
+with g++ >= 4.7, you may skip installing libcppa and provide this location to
 barista configure script using `--with-libcppa` option. If for some reason you
 cannot install GraphViz (>=2.30) to a standard location using the system
 package manager, you can install it under `barista/tools` directory using this
