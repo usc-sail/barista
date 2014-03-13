@@ -49,33 +49,44 @@ Installing missing packages on Ubuntu 12.04 LTS using apt-get:
     apt-get install build-essential git subversion cmake automake libtool
     apt-get install zlib1g-dev libatlas-dev libatlas-base-dev libboost-all-dev
     
-    # This PPA has a recent Graphviz package (>=2.30) for Ubuntu 12.04
+    # This PPA has a recent GraphViz package (>=2.30) for Ubuntu 12.04
     sudo add-apt-repository ppa:xba/graphviz
     apt-get update
-    # If you have problems installing GraphViz with apt-get, see the note below
+    # If you have problems installing GraphViz, see below
     apt-get install graphviz graphviz-dev
 
 Installing missing packages on Mac OS X using Homebrew:
 
     brew install cmake automake libtool boost graphviz
 
-We provide a rudimentary Makefile for installing Kaldi and libcppa under
+We provide a Makefile for installing Kaldi, libcppa and GraphViz under
 `barista/tools` directory (recommended). If you already have a recent version
-of Kaldi trunk installed at another location, you may skip installing Kaldi
-and provide this location to barista configure script using `--with-kaldi`
-option. Similarly, if you already have libcppa installed, you may provide the
-installation path to barista configure script using `--with-libcppa` option.
+of Kaldi trunk (revision >= 3755) installed at another location, you may skip
+installing Kaldi and provide this location to barista configure script using
+`--with-kaldi` option. Barista depends on the `kaldi-online` library and the
+portaudio installation provided by Kaldi. If you choose to use an existing
+Kaldi installation, make sure you have that library and portaudio installed.
+Similarly, if you already have a libcppa V0.8.1 installation that was compiled
+with g++ > 4.7, you may skip installing libcppa and provide this location to
+barista configure script using `--with-libcppa` option. If for some reason you
+cannot install GraphViz (>=2.30) to a standard location using the system
+package manager, you can install it under `barista/tools` directory using this
+Makefile. If you do so, don't forget to add `--with-graphviz=tools/graphviz`
+option when calling the barista configure script.
 
     cd barista
-    make -C tools -j 4 kaldi      # 4 jobs will be run in parallel
-    make -C tools -j 4 libcppa
+    make -C tools -j 4 kaldi                # 4 jobs will be run in parallel
+    make -C tools -j 4 libcppa CXX=g++-4.8  # g++ >= 4.7 required for libcppa
+    make -C tools -j 4 graphviz             # if not already installed
 
-Note: If you cannot install GraphViz (>=2.30) with the system package manager
-you can use the Makefile in `barista/tools` directory. If you install GraphViz
-under `barista/tools`, don't forget to add `--with-graphviz=tools/graphviz`
-when calling the configure script.
+This Makefile uses checkmarks to avoid reinstalling things that were already
+successfully installed in case one of the later installation steps fails. If
+you want to rerun earlier steps, say for reinstalling with a different
+compiler, don't forget to call the relevant clean target first. For instance,
+for rebuilding Kaldi:
 
-    make -C tools -j 4 graphviz
+    make -C tools kaldi/clean
+    make -C tools -j 4 kaldi
 
 ## Installation
 
@@ -96,4 +107,19 @@ can use `--with-kaldi` and `--with-libcppa` options to specify custom paths.
 Similarly, if you have Boost or GraphViz installed at a non-standard location,
 you can use `--with-boost` and `--with-graphviz` options to specify those. By
 default configure will search standard system folders for Boost and Graphviz.
-Finally, if you have ATLAS installed at a non-standard location, you can use `--with-atlas` option (Linux only). See `./configure --help` for details.
+Finally, if you have ATLAS installed at a non-standard location, you can use
+`--with-atlas` option (Linux only). See `./configure --help` for details.
+
+## Upgrade
+
+To upgrade your barista installation:
+
+    git pull                                # stop here if already up-to-date
+    make -C tools -j 4 kaldi                # upgrade Kaldi if necessary
+    make -C tools -j 4 libcppa CXX=g++-4.8  # upgrade libcppa if necessary
+    ./configure --prefix=`pwd` --with-compiler=g++-4.8
+    make -j 4
+    make install
+
+The calls for upgrading Kaldi and libcppa will not do anything unless they 
+need to be upgraded to a newer version to support new barista functionality.
