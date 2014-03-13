@@ -138,6 +138,7 @@ if(GRAPHVIZ_FOUND)
   endif()
 
   if(NOT GRAPHVIZ_FIND_QUIETLY)
+    message(STATUS "Graphviz include: ${GRAPHVIZ_INCLUDE_DIRS}")
     message(STATUS "Graphviz libraries: ${GRAPHVIZ_CDT_LIBRARY} ${GRAPHVIZ_GVC_LIBRARY} ${GRAPHVIZ_CGRAPH_LIBRARY} ${GRAPHVIZ_PATHPLAN_LIBRARY}")
   endif()
 else()
