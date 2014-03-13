@@ -89,21 +89,19 @@ libcppa/.configure: libcppa/.checkout
 	$(ERR_IF_CLANG)
 	cd libcppa && \
 	rm -rf build/CMakeFiles && \
-	./configure --prefix=`pwd` --with-gcc=$(CXX) --no-protobuf-examples && \
-	touch .configure
+	./configure --prefix=`pwd` --with-gcc=$(CXX) --no-protobuf-examples \
+	--build-static && touch .configure
 
 libcppa/.checkout:
 ifeq ($(UPDATE_CPPA),true)
 	@echo 'Updating libcppa: $(INSTALLED_CPPA_VERSION) -> $(CPPA_VERSION)' && \
 	cd libcppa && git checkout -- CMakeLists.txt && git checkout master && \
 	git pull && git checkout $(CPPA_VERSION) && \
-	sed -i.bk '2s:cppa CXX:cppa C CXX:; 3s:^:set(CMAKE_MACOSX_RPATH 1):' \
-	CMakeLists.txt && touch .checkout
+	sed -i.bk '2s:cppa CXX:cppa C CXX:' CMakeLists.txt && touch .checkout
 else
 	git clone git://github.com/Neverlord/libcppa.git && \
 	cd libcppa && git checkout $(CPPA_VERSION) && \
-	sed -i.bk '2s:cppa CXX:cppa C CXX:; 3s:^:set(CMAKE_MACOSX_RPATH 1):' \
-	CMakeLists.txt && touch .checkout
+	sed -i.bk '2s:cppa CXX:cppa C CXX:' CMakeLists.txt && touch .checkout
 endif
 
 

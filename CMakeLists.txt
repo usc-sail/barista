@@ -78,11 +78,6 @@ endif ()
 find_package(Graphviz REQUIRED)
 
 
-# By default, "make install" will make the RPATH of installed files empty.
-# We need to add CPPA_LIB_DIR back to RPATH to avoid dynamic loading problems.
-set(CMAKE_INSTALL_RPATH ${CPPA_LIB_DIR})
-
-
 ###############################################################################
 # Set compiler and linker flags                                               #
 ###############################################################################
@@ -173,7 +168,7 @@ add_executable(barista src/bin/barista.cc)
 
 target_link_libraries(barista 
   barista-base barista-io barista-feat barista-decoder barista-gmm
-  cppa
+  ${CPPA_LIB_DIR}/libcppa_static.a
   ${GRAPHVIZ_GVC_LIBRARY} ${GRAPHVIZ_CGRAPH_LIBRARY}
   ${KALDI_SRC_DIR}/online/kaldi-online.a  
   ${KALDI_SRC_DIR}/decoder/kaldi-decoder.a

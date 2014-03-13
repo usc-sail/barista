@@ -60,30 +60,34 @@ Installing missing packages on Mac OS X using Homebrew:
     brew install cmake automake libtool boost graphviz
 
 We provide a Makefile for installing Kaldi, libcppa and GraphViz under
-`barista/tools` directory (recommended). If you already have a recent version
-of Kaldi trunk (revision >= 3755) installed at another location, you may skip
-installing Kaldi and provide this location to barista configure script using
-`--with-kaldi` option. Barista depends on the `kaldi-online` library and the
-portaudio installation provided by Kaldi. If you choose to use an existing
-Kaldi installation, make sure you have that library and portaudio installed.
+`barista/tools` directory. We recommend installing Kaldi and libcppa using
+this makefile. If for some reason you cannot install GraphViz (>=2.30) using
+the system package manager, you can install it using this Makefile. If you do so, don't forget to add `--with-graphviz=tools/graphviz` option when calling the barista configure script.
+
+If you already have a recent version of Kaldi trunk (revision >= 3755)
+installed at another location, you may skip installing Kaldi and provide this
+location to barista configure script using `--with-kaldi` option. Barista
+links against the static versions of standard Kaldi libraries, the optional
+`kaldi-online` library and the portaudio library installed by Kaldi. If you
+choose to use an existing Kaldi installation, make sure you have the static
+versions of those libraries installed.
+
 Similarly, if you already have a libcppa V0.8.1 installation that was compiled
 with g++ >= 4.7, you may skip installing libcppa and provide this location to
-barista configure script using `--with-libcppa` option. If for some reason you
-cannot install GraphViz (>=2.30) to a standard location using the system
-package manager, you can install it under `barista/tools` directory using this
-Makefile. If you do so, don't forget to add `--with-graphviz=tools/graphviz`
-option when calling the barista configure script.
+barista configure script using `--with-libcppa` option. Barista links against
+the libcppa_static library. If you choose to use an existing libcppa
+installation, make sure you have the static version of the library installed.
 
     cd barista
     make -C tools -j 4 kaldi                # 4 jobs will be run in parallel
     make -C tools -j 4 libcppa CXX=g++-4.8  # g++ >= 4.7 required for libcppa
     make -C tools -j 4 graphviz             # if not already installed
 
-This Makefile uses checkmarks to avoid reinstalling things that were already
-successfully installed in case one of the later installation steps fails. If
-you want to rerun earlier steps, say for reinstalling with a different
-compiler, don't forget to call the relevant clean target first. For instance,
-for rebuilding Kaldi:
+We use checkmarks to avoid reinstalling things that were already successfully
+installed in case one of the later installation steps fails. If you want to
+rerun earlier steps, say for reinstalling with a different compiler, don't
+forget to call the relevant clean target first. For instance, for rebuilding
+Kaldi:
 
     make -C tools kaldi/clean
     make -C tools -j 4 kaldi
