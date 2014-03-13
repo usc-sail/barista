@@ -1,15 +1,13 @@
 # SHELL += -x
 
-CC  = gcc-4.8
-CXX = g++-4.8
-
 KALDI_VERSION = 3755
 CPPA_VERSION = V0.8.1
 
-# We do not support clang yet
+# We do not support compiling libcppa with clang.
 COMPILER = $(shell $(CXX) -v 2>&1 )
 ifeq ($(findstring clang,$(COMPILER)),clang)
-  $(error Clang is not supported. Use g++>=4.7 instead (g++-4.8 recommended).)
+  ERR_IF_CLANG = $(error Clang is not supported for this target. \
+                         Use g++ >= 4.7 instead (g++-4.8 recommended).)
 endif
 
 INSTALLED_KALDI_VERSION := $(shell [ -d kaldi/.svn ] && svnversion -n kaldi)
@@ -88,6 +86,7 @@ libcppa/.install: libcppa/.configure
 	touch .install
 
 libcppa/.configure: libcppa/.checkout
+	$(ERR_IF_CLANG)
 	cd libcppa && \
 	rm -rf build/CMakeFiles && \
 	./configure --prefix=`pwd` --with-gcc=$(CXX) --no-protobuf-examples && \
