@@ -71,9 +71,9 @@ installation path to barista configure script using `--with-libcppa` option.
     make -C tools -j 4 libcppa
 
 Note: If you cannot install GraphViz (>=2.30) with the system package manager
-you can sue the Makefile in `barista/tools` directory. If you install GraphViz
-under `barista/tools`, don't forget to add
-`--with-graphviz=barista/tools/graphviz` when calling the configure script.
+you can use the Makefile in `barista/tools` directory. If you install GraphViz
+under `barista/tools`, don't forget to add `--with-graphviz=tools/graphviz`
+when calling the configure script.
 
     make -C tools -j 4 graphviz
 
