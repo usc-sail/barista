@@ -62,7 +62,7 @@ Installing missing packages on Mac OS X using Homebrew:
 We provide a Makefile for installing Kaldi, libcppa and GraphViz under
 `barista/tools` directory. We recommend installing Kaldi and libcppa using
 this makefile. If for some reason you cannot install GraphViz (>=2.30) using
-the system package manager, you can install it using this Makefile. If you do so, don't forget to add `--with-graphviz=tools/graphviz` option when calling the barista configure script.
+the system package manager, you can install it using this Makefile.
 
 If you already have a recent version of Kaldi trunk (revision >= 3755)
 installed at another location, you may skip installing Kaldi and provide this
@@ -112,7 +112,8 @@ Similarly, if you have Boost or GraphViz installed at a non-standard location,
 you can use `--with-boost` and `--with-graphviz` options to specify those. By
 default configure will search standard system folders for Boost and Graphviz.
 Finally, if you have ATLAS installed at a non-standard location, you can use
-`--with-atlas` option (Linux only). See `./configure --help` for details.
+`--with-atlas` option (Linux only). See `./configure --help` for a list of
+supported command line options.
 
 ## Upgrade
 

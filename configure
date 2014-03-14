@@ -27,7 +27,7 @@ Usage: $0 [OPTION]...
   Required Packages in Non-Standard Locations:
     --with-atlas=PATH           path to ATLAS    install root
     --with-boost=PATH           path to Boost    install root
-    --with-graphviz=PATH        path to GraphViz install root
+    --with-graphviz=PATH        path to GraphViz install root  [tools/graphviz]
     --with-kaldi=PATH           path to Kaldi    install root  [tools/kaldi]
     --with-libcppa=PATH         path to libcppa  install root  [tools/libcppa]
 "
@@ -61,6 +61,7 @@ configure ()
     
     mkdir -p $workdir
     cd $workdir
+    rm -f CMakeCache.txt
     cmake $CMakeCacheEntries $sourcedir
     echo "# This is the command used to configure this build" > config.status
     echo $command >> config.status
@@ -71,6 +72,7 @@ configure ()
 builddir="$sourcedir/build"
 CMakeCacheEntries=""
 append_cache_entry CMAKE_INSTALL_PREFIX PATH /usr/local
+append_cache_entry GRAPHVIZ_ROOT PATH $sourcedir/tools/graphviz
 append_cache_entry KALDI_ROOT PATH $sourcedir/tools/kaldi
 append_cache_entry CPPA_ROOT PATH $sourcedir/tools/libcppa
 

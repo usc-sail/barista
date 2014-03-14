@@ -39,12 +39,19 @@ endif ()
 
 set(BARISTA_ROOT ${CMAKE_SOURCE_DIR})
 set(BARISTA_SRC_DIR ${BARISTA_ROOT}/src)
+set(BARISTA_TOOLS_DIR ${BARISTA_ROOT}/tools)
 
 # TODO: we should have a FindCPPA.cmake script which will find these.
+if (NOT CPPA_ROOT)
+  set(CPPA_ROOT ${BARISTA_TOOLS_DIR}/libcppa)
+endif()
 set(CPPA_INCLUDE_DIR ${CPPA_ROOT}/include)
-set(CPPA_LIB_DIR ${CPPA_ROOT}/lib)  
+set(CPPA_LIB_DIR ${CPPA_ROOT}/lib)
 
 # TODO: we should have a FindKaldi.cmake script which will find these.
+if (NOT KALDI_ROOT)
+  set(KALDI_ROOT ${BARISTA_TOOLS_DIR}/kaldi)
+endif()
 set(KALDI_SRC_DIR ${KALDI_ROOT}/src)
 set(KALDI_TOOLS_DIR ${KALDI_ROOT}/tools)
 
@@ -72,9 +79,10 @@ if (BOOST_ROOT)
 endif ()
 find_package(Boost REQUIRED)
 
-if (GRAPHVIZ_ROOT)
-  set(ENV{GRAPHVIZ_ROOT} ${GRAPHVIZ_ROOT})
-endif ()
+if (NOT GRAPHVIZ_ROOT)
+  set(GRAPHVIZ_ROOT ${BARISTA_TOOLS_DIR}/graphviz)
+endif()
+set(ENV{GRAPHVIZ_ROOT} ${GRAPHVIZ_ROOT})
 find_package(Graphviz REQUIRED)
 
 
