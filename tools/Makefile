@@ -33,11 +33,12 @@ clean: kaldi/clean graphviz/clean libcppa/clean
 kaldi/clean:
 	$(MAKE) -C kaldi/tools clean; $(MAKE) -C kaldi/src clean; \
 	rm -f kaldi/src/.install kaldi/src/.depend kaldi/src/.configure; \
-	rm -f kaldi/tools/.install kaldi/tools/portaudio/.install
+	rm -f kaldi/tools/.install kaldi/tools/portaudio/.install; \
+	rm -rf kaldi/tools/portaudio;
 
 .PHONY: libcppa/clean
 libcppa/clean: 
-	$(MAKE) -C libcppa clean && rm -f libcppa/.install libcppa/.configure
+	rm -f libcppa/build libcppa/.install libcppa/.configure
 
 .PHONY: graphviz/clean
 graphviz/clean: 
