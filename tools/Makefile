@@ -38,7 +38,7 @@ kaldi/clean:
 
 .PHONY: libcppa/clean
 libcppa/clean: 
-	rm -f libcppa/build libcppa/.install libcppa/.configure
+	rm -rf libcppa/build libcppa/.install libcppa/.configure
 
 .PHONY: graphviz/clean
 graphviz/clean: 
