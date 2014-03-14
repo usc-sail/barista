@@ -10,6 +10,19 @@ ifeq ($(findstring clang,$(COMPILER)),clang)
                          Use g++ >= 4.7 instead (g++-4.8 recommended).)
 endif
 
+ifeq ($(findstring GCC,$(COMPILER)),GCC)
+  GCC_VERSION := $(shell $(CXX) -dumpversion)
+  GCC_NUMBER  := $(shell echo $(GCC_VERSION) | cut -f1,2 -d. | \
+                        sed 's/\./ /' | xargs printf "%d%02d")
+  GCC_LT_47   := $(shell expr $(GCC_NUMBER) \< 407)
+  ifeq ("$(GCC_LT_47)","1")
+    ERR_IF_GCC_LT_47 = $(error g++ $(GCC_VERSION) is not supported for this \
+                               target. Use g++ >= 4.7 instead \
+                               (g++-4.8 recommended).)
+  endif
+endif
+
+
 INSTALLED_KALDI_VERSION := $(shell [ -d kaldi/.svn ] && svnversion -n kaldi)
 UPDATE_KALDI := $(shell [ "$(INSTALLED_KALDI_VERSION)" != "" ] && \
                         [ $(KALDI_VERSION) -ne $(INSTALLED_KALDI_VERSION) ] \
@@ -88,6 +101,7 @@ libcppa/.install: libcppa/.configure
 
 libcppa/.configure: libcppa/.checkout
 	$(ERR_IF_CLANG)
+	$(ERR_IF_GCC_LT_47)
 	cd libcppa && \
 	rm -rf build/CMakeFiles && \
 	./configure --prefix=`pwd` --with-gcc=$(CXX) --no-protobuf-examples \
