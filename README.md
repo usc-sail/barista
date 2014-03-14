@@ -53,7 +53,7 @@ Installing missing packages on Ubuntu 12.04 LTS using apt-get:
     sudo add-apt-repository ppa:xba/graphviz
     apt-get update
     # If you have problems installing GraphViz, see below
-    apt-get install graphviz graphviz-dev
+    apt-get install libgraphviz4 graphviz libgraphviz-dev graphviz-dev
 
 Installing missing packages on Mac OS X using Homebrew:
 
@@ -103,14 +103,14 @@ likely need to copy some flags from Kaldi makefiles. See
     make -j 4
     make install
 
-Above given configuration will build barista under `barista/build-g++-4.8` and
+Above given configuration will build barista under `barista/build/g++-4.8` and
 install everything under `barista` root directory. If you omit the `--prefix`
 option, barista will be installed under `/usr/local/`. If you want to build
 with a Kaldi or libcppa installation that is not under `barista/tools`, you
 can use `--with-kaldi` and `--with-libcppa` options to specify custom paths.
 Similarly, if you have Boost or GraphViz installed at a non-standard location,
 you can use `--with-boost` and `--with-graphviz` options to specify those. By
-default configure will search standard system folders for Boost and Graphviz.
+default configure will search standard system folders for Boost and GraphViz.
 Finally, if you have ATLAS installed at a non-standard location, you can use
 `--with-atlas` option (Linux only). See `./configure --help` for a list of
 supported command line options.

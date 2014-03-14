@@ -18,7 +18,7 @@ usage="\
 Usage: $0 [OPTION]... 
 
   Build Options:
-    --build-dir=DIR             place build files in directory [build]
+    --build-dir=DIR             build directory                [build]
     --with-compiler=FILE        compiler name (or path)
 
   Installation Directories:
@@ -52,7 +52,10 @@ configure ()
     
     if [ -n "$compiler" ]; then
       append_cache_entry CMAKE_CXX_COMPILER FILEPATH `which $compiler`
-      workdir="$workdir-$compiler"
+      compilername=`basename $compiler`
+      workdir="$workdir/$compilername"
+    else
+      workdir="$workdir/c++"
     fi
     
     append_cache_entry EXECUTABLE_OUTPUT_PATH PATH "$workdir/bin"
