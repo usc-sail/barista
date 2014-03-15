@@ -47,15 +47,20 @@ append_cache_entry ()
 #   $2 is the path to a compiler executable.
 configure ()
 {
-    workdir=$1
+    builddir=$1
     compiler=$2
+    
+    if [[ "$builddir" != /* ]]; then
+        # relative path given; convert to absolute path
+        builddir="$(pwd)/$builddir"
+    fi
     
     if [ -n "$compiler" ]; then
       append_cache_entry CMAKE_CXX_COMPILER FILEPATH `which $compiler`
       compilername=`basename $compiler`
-      workdir="$workdir/$compilername"
+      workdir="$builddir/$compilername"
     else
-      workdir="$workdir/c++"
+      workdir="$builddir/c++"
     fi
     
     append_cache_entry EXECUTABLE_OUTPUT_PATH PATH "$workdir/bin"
