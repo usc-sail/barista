@@ -73,10 +73,12 @@ choose to use an existing Kaldi installation, make sure you have the static
 versions of those libraries installed.
 
 Similarly, if you already have a libcppa V0.8.1 installation that was compiled
-with g++ >= 4.7, you may skip installing libcppa and provide this location to
-barista configure script using `--with-libcppa` option. Barista links against
-the libcppa_static library. If you choose to use an existing libcppa
-installation, make sure you have the static version of the library installed.
+with g++ >= 4.7 (clang is not supported) with `--disable-context-switching`
+and `--build-static` flags, you may skip installing libcppa and provide this
+location to barista configure script using `--with-libcppa` option. Barista
+links against the libcppa_static library. If you choose to use an existing
+libcppa installation, make sure you have the static version of the library
+installed.
 
     cd barista
     make -C tools -j 4 kaldi                # 4 jobs will be run in parallel
@@ -94,34 +96,34 @@ Kaldi:
 
 ## Installation
 
-If the following instructions fail for some reason, you might need to edit
-`barista/CMakeLists.txt` to match your setup before building barista. You will
-likely need to copy some flags from Kaldi makefiles. See
-`barista/CMakeLists.txt` for details.
-
     ./configure --prefix=`pwd` --with-compiler=g++-4.8
     make -j 4
     make install
 
 Above given configuration will build barista under `barista/build/g++-4.8` and
 install everything under `barista` root directory. If you omit the `--prefix`
-option, barista will be installed under `/usr/local/`. If you want to build
-with a Kaldi or libcppa installation that is not under `barista/tools`, you
-can use `--with-kaldi` and `--with-libcppa` options to specify custom paths.
-Similarly, if you have Boost or GraphViz installed at a non-standard location,
-you can use `--with-boost` and `--with-graphviz` options to specify those. By
-default configure will search standard system folders for Boost and GraphViz.
-Finally, if you have ATLAS installed at a non-standard location, you can use
-`--with-atlas` option (Linux only). See `./configure --help` for a list of
-supported command line options.
+option, barista will be installed under `/usr/local/`. If the default compiler
+on your system is g++ >= 4.7, `--with-compiler` flag is not needed. If you
+want to build with a Kaldi or libcppa installation that is not under
+`barista/tools`, you can use `--with-kaldi` and `--with-libcppa` options to
+specify custom paths. Similarly, if you have Boost or GraphViz installed at a
+non-standard location, you can use `--with-boost` and `--with-graphviz`
+options to specify those. By default configure will search standard system
+folders for Boost and GraphViz. Finally, if you have ATLAS installed at a
+non-standard location, you can use `--with-atlas` option (Linux only). See
+`./configure --help` for a list of supported command line options.
+
+If above given instructions fail for some reason, you might need to edit
+`barista/CMakeLists.txt` to match your setup. You will likely need to copy
+some flags from Kaldi Makefiles. See `barista/CMakeLists.txt` for details.
 
 ## Upgrade
 
 To upgrade your barista installation:
 
     git pull                                # stop here if already up-to-date
-    make -C tools -j 4 kaldi                # upgrade Kaldi if necessary
-    make -C tools -j 4 libcppa CXX=g++-4.8  # upgrade libcppa if necessary
+    make -C tools -j 4 kaldi                # upgrades Kaldi if necessary
+    make -C tools -j 4 libcppa CXX=g++-4.8  # upgrades libcppa if necessary
     ./configure --prefix=`pwd` --with-compiler=g++-4.8
     make -j 4
     make install
