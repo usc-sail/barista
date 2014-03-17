@@ -72,6 +72,8 @@ set(OPENFST_LIB_DIR ${KALDI_TOOLS_DIR}/openfst/lib)
 
 set(PORTAUDIO_INCLUDE_DIR ${KALDI_TOOLS_DIR}/portaudio/install/include)
 set(PORTAUDIO_LIB_DIR ${KALDI_TOOLS_DIR}/portaudio/install/lib)
+set(PORTAUDIO_LIBTOOL_LIB ${PORTAUDIO_LIB_DIR}/libportaudio.la)
+
 
 # Prevent falling back to system paths when using a custom Boost prefix.
 if (BOOST_ROOT)
@@ -105,25 +107,34 @@ find_package(Graphviz REQUIRED)
 #    KALDI_ROOT/tools/portaudio/Makefile                                      #
 ###############################################################################
 
+# Extract platform dependent portaudio dependencies from the libtool library
+execute_process(COMMAND grep "^dependency_libs" ${PORTAUDIO_LIBTOOL_LIB}
+                COMMAND sed "s/.*=//; s/'//g; s/^ *//; s/ *$//;"
+                COMMAND tr -d "\n"
+                OUTPUT_VARIABLE DEPENDENCY_LIBS)
+
+execute_process(COMMAND grep "^inherited" ${PORTAUDIO_LIBTOOL_LIB}
+                COMMAND sed "s/.*=//; s/'//g; s/^ *//; s/ *$//;"
+                COMMAND tr -d "\n"
+                OUTPUT_VARIABLE DEPENDENCY_FLAGS)
 
 set (CMAKE_CXX_FLAGS 
     "${CMAKE_CXX_FLAGS} -msse -msse2 -fPIC -Wall -DKALDI_DOUBLEPRECISION=0 -DHAVE_POSIX_MEMALIGN -DHAVE_EXECINFO_H=1 -DHAVE_CXXABI_H -Winit-self -Wno-unused-local-typedefs -Wno-sign-compare -flax-vector-conversions -fpermissive -g -std=c++11")
 
+set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${DEPENDENCY_FLAGS}")
+
 if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   # Typical flags for Linux
-  set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DHAVE_ATLAS -pthread")
-
-  set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}")
+  set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DHAVE_ATLAS")
   
-  set (PORTAUDIO_DEPENDENCIES "-lrt")
-  # set (PORTAUDIO_DEPENDENCIES "-lrt -lasound -ljack")
+  set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}")
 
 elseif (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
   # Typical flags for Mac OS X
   set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DHAVE_CLAPACK")
-
+  
   set (CMAKE_EXE_LINKER_FLAGS 
-    "${CMAKE_EXE_LINKER_FLAGS} -framework Accelerate -framework CoreAudio -framework AudioToolbox -framework AudioUnit -framework Carbon -g")
+    "${CMAKE_EXE_LINKER_FLAGS} -framework Accelerate")
 
 else ()
   message(FATAL_ERROR "Barista does not support ${CMAKE_SYSTEM_NAME}.")
@@ -193,7 +204,7 @@ target_link_libraries(barista
   ${OPENFST_LIB_DIR}/libfst.a
   ${PORTAUDIO_LIB_DIR}/libportaudio.a
   dl m pthread
-  ${PORTAUDIO_DEPENDENCIES}  # empty on mac os x
+  ${DEPENDENCY_LIBS}  # empty on mac os x
 )
 
 
