@@ -104,8 +104,8 @@ libcppa/.configure: libcppa/.checkout
 	$(ERR_IF_GCC_LT_47)
 	cd libcppa && \
 	rm -rf build/CMakeFiles && \
-	./configure --prefix=`pwd` --with-gcc=$(CXX) --no-protobuf-examples \
-	--build-static && touch .configure
+	./configure --prefix=`pwd` --with-gcc=$(CXX) --build-static \
+	--disable-context-switching --no-protobuf-examples && touch .configure
 
 libcppa/.checkout:
 ifeq ($(UPDATE_CPPA),true)
