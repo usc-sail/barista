@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Convenience wrapper for easily viewing/setting options that
 # the project's CMake scripts will recognize.
 # This script is based on libcppa configure script.
