@@ -2,7 +2,7 @@
 
 BARISTAROOT=../../..
 KALDISRC=$BARISTAROOT/tools/kaldi/src
-export PATH=$BARISTAROOT/build:$KALDISRC/bin:$PATH
+export PATH=$BARISTAROOT/bin:$KALDISRC/bin:$PATH
 
 modeldir=../../models/wsj
 

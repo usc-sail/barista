@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 BARISTAROOT=../..
-export PATH=$BARISTAROOT/build:$PATH
+export PATH=$BARISTAROOT/bin:$PATH
 
 wsjdir=../models/wsj
 hub4dir=../models/hub4
