@@ -2,14 +2,14 @@
 # Once done this will define
 #
 #  GRAPHVIZ_FOUND - system has Graphviz
-#  GRAPHVIZ_INCLUDE_DIR - the Graphviz include directory
-#  GRAPHVIZ_LIBRARY - Link these to use Graphviz
-#  GRAPHVIZ_VERSION = The value of PACKAGE_VERSION defined in graphviz_version.h
-#  GRAPHVIZ_MAJOR_VERSION = The library major version number
-#  GRAPHVIZ_MINOR_VERSION = The library minor version number
-#  GRAPHVIZ_PATCH_VERSION = The library patch version number
+#  GRAPHVIZ_INCLUDE_DIRS - Graphviz include directories
+#  GRAPHVIZ_CDT_LIBRARY - Graphviz CDT library
+#  GRAPHVIZ_GVC_LIBRARY - Graphviz GVC library
+#  GRAPHVIZ_CGRAPH_LIBRARY - Graphviz CGRAPH library
+#  GRAPHVIZ_PATHPLAN_LIBRARY - Graphviz PATHPLAN library
+#  GRAPHVIZ_VERSION - Graphviz version
 #
-# This module reads hints about search locations from the following env variables:
+# This module reads hints about search locations from the following cmake variables:
 #  GRAPHVIZ_ROOT          - Graphviz installation prefix
 #                           (containing bin/, include/, etc.)
 
@@ -19,62 +19,27 @@
 # Version computation and some cleanups by Allen Winter <allen.winter@kdab.com>
 # Copyright (c) 2012-2014 Klarälvdalens Datakonsult AB, a KDAB Group company <info@kdab.com>
 
+# Simplified script by Dogan Can <dogancan@usc.edu>
+# Copyright (c) 2014 University of Southern California
+
 # Redistribution and use is allowed according to the terms of the GPLv3+ license.
 
 
-if(NOT GRAPHVIZ_MIN_VERSION)
-  set(GRAPHVIZ_MIN_VERSION "2.30")
+if(GRAPHVIZ_ROOT)
+  set(_GRAPHVIZ_INCLUDE_DIR ${GRAPHVIZ_ROOT}/include)
+  set(_GRAPHVIZ_LIBRARY_DIR ${GRAPHVIZ_ROOT}/lib)
 endif()
 
-if(GRAPHVIZ_INCLUDE_DIR AND GRAPHVIZ_CDT_LIBRARY
-    AND GRAPHVIZ_CGRAPH_LIBRARY AND GRAPHVIZ_PATHPLAN_LIBRARY)
-  set(GRAPHVIZ_FIND_QUIETLY TRUE)
-endif()
-
-set(_GRAPHVIZ_ROOT $ENV{GRAPHVIZ_ROOT})
-
-if(NOT _GRAPHVIZ_ROOT)
-  if(WIN32)
-      find_program(DOT_TOOL dot)
-      get_filename_component(_GRAPHVIZ_ROOT ${DOT_TOOL} PATH)
-  endif()
-endif()
-
-if(_GRAPHVIZ_ROOT)
-  set(_GRAPHVIZ_INCLUDE_DIR ${_GRAPHVIZ_ROOT}/include)
-  set(_GRAPHVIZ_LIBRARY_DIR ${_GRAPHVIZ_ROOT}/lib)
-  set(_GRAPHVIZ_FIND_OPTS "")
-else()
-  set(_GRAPHVIZ_FIND_OPTS "")
-endif()
-
-find_path(GRAPHVIZ_INCLUDE_DIR NAMES graphviz/cgraph.h
-  HINTS ${_GRAPHVIZ_INCLUDE_DIR}
-  ${_GRAPHVIZ_FIND_OPTS})
-
-if(WIN32)
-  if(CMAKE_BUILD_TYPE STREQUAL "Release")
-    set(GRAPHVIZ_LIB_PATH_SUFFIX "release/lib")
-  else()
-    set(GRAPHVIZ_LIB_PATH_SUFFIX "debug/lib")
-  endif()
-else()
-  set(GRAPHVIZ_LIB_PATH_SUFFIX)
-endif()
-
-find_library(GRAPHVIZ_CDT_LIBRARY NAMES cdt
-  HINTS ${_GRAPHVIZ_LIBRARY_DIR} PATH_SUFFIXES ${GRAPHVIZ_LIB_PATH_SUFFIX}
-  ${_GRAPHVIZ_FIND_OPTS})
-find_library(GRAPHVIZ_GVC_LIBRARY NAMES gvc
-  HINTS ${_GRAPHVIZ_LIBRARY_DIR} PATH_SUFFIXES ${GRAPHVIZ_LIB_PATH_SUFFIX}
-  ${_GRAPHVIZ_FIND_OPTS})
-find_library(GRAPHVIZ_CGRAPH_LIBRARY NAMES cgraph
-  HINTS ${_GRAPHVIZ_LIBRARY_DIR} PATH_SUFFIXES ${GRAPHVIZ_LIB_PATH_SUFFIX}
-  ${_GRAPHVIZ_FIND_OPTS})
+find_path(GRAPHVIZ_INCLUDE_DIR         NAMES graphviz/cgraph.h
+          HINTS ${_GRAPHVIZ_INCLUDE_DIR})
+find_library(GRAPHVIZ_CDT_LIBRARY      NAMES cdt 
+             HINTS ${_GRAPHVIZ_LIBRARY_DIR})
+find_library(GRAPHVIZ_GVC_LIBRARY      NAMES gvc 
+             HINTS ${_GRAPHVIZ_LIBRARY_DIR})
+find_library(GRAPHVIZ_CGRAPH_LIBRARY   NAMES cgraph
+             HINTS ${_GRAPHVIZ_LIBRARY_DIR})
 find_library(GRAPHVIZ_PATHPLAN_LIBRARY NAMES pathplan
-  HINTS ${_GRAPHVIZ_LIBRARY_DIR} PATH_SUFFIXES ${GRAPHVIZ_LIB_PATH_SUFFIX}
-  ${_GRAPHVIZ_FIND_OPTS})
-
+             HINTS ${_GRAPHVIZ_LIBRARY_DIR})
 
 if(GRAPHVIZ_INCLUDE_DIR AND GRAPHVIZ_CDT_LIBRARY AND GRAPHVIZ_GVC_LIBRARY
     AND GRAPHVIZ_CGRAPH_LIBRARY AND GRAPHVIZ_PATHPLAN_LIBRARY)
@@ -83,66 +48,36 @@ else()
   set(GRAPHVIZ_FOUND FALSE)
 endif()
 
-# Ok, now compute the version and make sure its greater then the min required
+# Ok, now compute the version
 if(GRAPHVIZ_FOUND)
-  if(NOT WIN32)
     set(FIND_GRAPHVIZ_VERSION_SOURCE
       "#include <graphviz/graphviz_version.h>\n#include <stdio.h>\n int main()\n {\n printf(\"%s\",PACKAGE_VERSION);return 1;\n }\n")
     set(FIND_GRAPHVIZ_VERSION_SOURCE_FILE ${CMAKE_BINARY_DIR}/CMakeTmp/FindGRAPHVIZ.cxx)
     file(WRITE "${FIND_GRAPHVIZ_VERSION_SOURCE_FILE}" "${FIND_GRAPHVIZ_VERSION_SOURCE}")
-
+    
     set(FIND_GRAPHVIZ_VERSION_ADD_INCLUDES
       "-DINCLUDE_DIRECTORIES:STRING=${GRAPHVIZ_INCLUDE_DIR}")
     
-    set(GRAPHVIZ_INCLUDE_DIRS ${GRAPHVIZ_INCLUDE_DIR} ${GRAPHVIZ_INCLUDE_DIR}/graphviz)
-
-    if(NOT CMAKE_CROSSCOMPILING)
     try_run(RUN_RESULT COMPILE_RESULT
       ${CMAKE_BINARY_DIR}
       ${FIND_GRAPHVIZ_VERSION_SOURCE_FILE}
       CMAKE_FLAGS "${FIND_GRAPHVIZ_VERSION_ADD_INCLUDES}"
       RUN_OUTPUT_VARIABLE GRAPHVIZ_VERSION)
-    endif()
-
-    if(COMPILE_RESULT AND RUN_RESULT EQUAL 1 AND NOT CMAKE_CROSSCOMPILING)
+    
+    if(COMPILE_RESULT AND RUN_RESULT EQUAL 1)
       message(STATUS "Graphviz version: ${GRAPHVIZ_VERSION}")
-      if(${GRAPHVIZ_VERSION} VERSION_LESS ${GRAPHVIZ_MIN_VERSION})
-        message(STATUS "Graphviz version ${GRAPHVIZ_VERSION} is too old. At least version ${GRAPHVIZ_MIN_VERSION} is needed.")
-        set(GRAPHVIZ_FOUND FALSE)
-        set(GRAPHVIZ_INCLUDE_DIR "")
-        set(GRAPHVIZ_CDT_LIBRARY "")
-        set(GRAPHVIZ_GVC_LIBRARY "")
-        set(GRAPHVIZ_CGRAPH_LIBRARY "")
-        set(GRAPHVIZ_PATHPLAN_LIBRARY "")
-      else(${GRAPHVIZ_VERSION} VERSION_LESS ${GRAPHVIZ_MIN_VERSION})
-        # Compute the major and minor version numbers
-        if(NOT CMAKE_CROSSCOMPILING)
-          string(REPLACE "." ";" VL ${GRAPHVIZ_VERSION})
-          list(GET VL 0 GRAPHVIZ_MAJOR_VERSION)
-          list(GET VL 1 GRAPHVIZ_MINOR_VERSION)
-          list(GET VL 2 GRAPHVIZ_PATCH_VERSION)
-        endif()
-      endif(${GRAPHVIZ_VERSION} VERSION_LESS ${GRAPHVIZ_MIN_VERSION})
     else()
-      if(NOT CMAKE_CROSSCOMPILING)
-        message(FATAL_ERROR "Unable to compile or run the graphviz version detection program.")
-      endif()
+      message(FATAL_ERROR "Unable to compile or run the graphviz version detection program.")
     endif()
-  elseif(WIN32)
-    execute_process(COMMAND ${DOT_TOOL} -V OUTPUT_VARIABLE DOT_VERSION_OUTPUT ERROR_VARIABLE DOT_VERSION_OUTPUT OUTPUT_QUIET)
-    string(REGEX MATCH "([0-9]*\\.[0-9]*\\.[0-9]*)" GRAPHVIZ_VERSION "${DOT_VERSION_OUTPUT}")
-    string(REPLACE "." ";" VL ${GRAPHVIZ_VERSION})
-    list(GET VL 0 GRAPHVIZ_MAJOR_VERSION)
-    list(GET VL 1 GRAPHVIZ_MINOR_VERSION)
-    list(GET VL 2 GRAPHVIZ_PATCH_VERSION)
-  endif()
+    
+    set(GRAPHVIZ_INCLUDE_DIRS ${GRAPHVIZ_INCLUDE_DIR} ${GRAPHVIZ_INCLUDE_DIR}/graphviz)
+    
+    if(NOT Graphviz_FIND_QUIETLY)
+      message(STATUS "Graphviz include: ${GRAPHVIZ_INCLUDE_DIRS}")
+      message(STATUS "Graphviz libraries: ${GRAPHVIZ_CDT_LIBRARY} ${GRAPHVIZ_GVC_LIBRARY} ${GRAPHVIZ_CGRAPH_LIBRARY} ${GRAPHVIZ_PATHPLAN_LIBRARY}")
+    endif()
+endif()
 
-  if(NOT GRAPHVIZ_FIND_QUIETLY)
-    message(STATUS "Graphviz include: ${GRAPHVIZ_INCLUDE_DIRS}")
-    message(STATUS "Graphviz libraries: ${GRAPHVIZ_CDT_LIBRARY} ${GRAPHVIZ_GVC_LIBRARY} ${GRAPHVIZ_CGRAPH_LIBRARY} ${GRAPHVIZ_PATHPLAN_LIBRARY}")
-  endif()
-else()
-  if(GRAPHVIZ_FIND_REQUIRED)
-    message(FATAL_ERROR "Could NOT find Graphviz")
-  endif()
+if(Graphviz_FIND_REQUIRED AND NOT GRAPHVIZ_FOUND)
+  message(FATAL_ERROR "Could not find GraphViz.")
 endif()
