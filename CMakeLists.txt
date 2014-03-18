@@ -53,8 +53,10 @@ if (VERBOSE)
 else ()
   find_package(Kaldi QUIET REQUIRED)
 endif ()
-if (NOT ${KALDI_VERSION} VERSION_GREATER "3754")
-  message(FATAL_ERROR "Kaldi revision >= 3755 is required.")
+if (KALDI_VERSION)
+  if (${KALDI_VERSION} VERSION_LESS "3755")
+    message(FATAL_ERROR "Kaldi revision >= 3755 is required.")
+  endif()
 endif()
 
 # TODO: we should maybe look into kaldi/src/kaldi.mk to figure out ATLAS paths.
