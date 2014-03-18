@@ -19,8 +19,9 @@ Usage: $0 [OPTION]...
 
   Build Options:
     --build-dir=DIR             build directory                [build]
+    --verbose                   verbose configuration          [false]
     --with-compiler=FILE        compiler name (or path)
-
+ 
   Installation Directories:
     --prefix=PREFIX             installation directory         [/usr/local]
 
@@ -98,6 +99,9 @@ while [ $# -ne 0 ]; do
             ;;
         --build-dir=*)
             builddir=$optarg
+            ;;
+        --verbose)
+            append_cache_entry VERBOSE BOOL true
             ;;
         --with-compiler=*)
             compiler=$optarg
