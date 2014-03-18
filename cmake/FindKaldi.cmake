@@ -11,8 +11,10 @@ if (KALDI_SRC_DIR AND KALDI_TOOLS_DIR AND KALDI_LIBRARIES)
   set(KALDI_FOUND TRUE)
 else (KALDI_SRC_DIR AND KALDI_TOOLS_DIR AND KALDI_LIBRARIES)
 
-  find_path(KALDI_SRC_DIR base/kaldi-common.h ${KALDI_ROOT}/src)
-  find_path(KALDI_TOOLS_DIR install_portaudio.sh ${KALDI_ROOT}/tools)
+  find_path(KALDI_SRC_DIR NAMES base/kaldi-common.h 
+            PATHS ${KALDI_ROOT}/src NO_DEFAULT_PATH)
+  find_path(KALDI_TOOLS_DIR NAMES install_portaudio.sh 
+            PATHS ${KALDI_ROOT}/tools NO_DEFAULT_PATH)
   
   if (KALDI_SRC_DIR AND KALDI_TOOLS_DIR)
     if (NOT Kaldi_FIND_QUIETLY)
@@ -33,17 +35,28 @@ else (KALDI_SRC_DIR AND KALDI_TOOLS_DIR AND KALDI_LIBRARIES)
   
   if (KALDI_SRC_DIR)
     
-    find_library(KALDI_BASE_LIBRARY base/kaldi-base.a ${KALDI_SRC_DIR})
-    find_library(KALDI_DECODER_LIBRARY decoder/kaldi-decoder.a ${KALDI_SRC_DIR})
-    find_library(KALDI_FEAT_LIBRARY feat/kaldi-feat.a ${KALDI_SRC_DIR})
-    find_library(KALDI_GMM_LIBRARY gmm/kaldi-gmm.a ${KALDI_SRC_DIR})
-    find_library(KALDI_HMM_LIBRARY hmm/kaldi-hmm.a ${KALDI_SRC_DIR})
-    find_library(KALDI_LAT_LIBRARY lat/kaldi-lat.a ${KALDI_SRC_DIR})
-    find_library(KALDI_MATRIX_LIBRARY matrix/kaldi-matrix.a ${KALDI_SRC_DIR})
-    find_library(KALDI_ONLINE_LIBRARY online/kaldi-online.a ${KALDI_SRC_DIR})
-    find_library(KALDI_TRANSFORM_LIBRARY transform/kaldi-transform.a ${KALDI_SRC_DIR})
-    find_library(KALDI_TREE_LIBRARY tree/kaldi-tree.a ${KALDI_SRC_DIR})
-    find_library(KALDI_UTIL_LIBRARY util/kaldi-util.a ${KALDI_SRC_DIR})
+    find_library(KALDI_BASE_LIBRARY      NAMES base/kaldi-base.a 
+                 PATHS ${KALDI_SRC_DIR} NO_DEFAULT_PATH)
+    find_library(KALDI_DECODER_LIBRARY   NAMES decoder/kaldi-decoder.a
+                 PATHS ${KALDI_SRC_DIR} NO_DEFAULT_PATH)
+    find_library(KALDI_FEAT_LIBRARY      NAMES feat/kaldi-feat.a
+                 PATHS ${KALDI_SRC_DIR} NO_DEFAULT_PATH)
+    find_library(KALDI_GMM_LIBRARY       NAMES gmm/kaldi-gmm.a
+                 PATHS ${KALDI_SRC_DIR} NO_DEFAULT_PATH)
+    find_library(KALDI_HMM_LIBRARY       NAMES hmm/kaldi-hmm.a
+                 PATHS ${KALDI_SRC_DIR} NO_DEFAULT_PATH)
+    find_library(KALDI_LAT_LIBRARY       NAMES lat/kaldi-lat.a
+                 PATHS ${KALDI_SRC_DIR} NO_DEFAULT_PATH)
+    find_library(KALDI_MATRIX_LIBRARY    NAMES matrix/kaldi-matrix.a
+                 PATHS ${KALDI_SRC_DIR} NO_DEFAULT_PATH)
+    find_library(KALDI_ONLINE_LIBRARY    NAMES online/kaldi-online.a
+                 PATHS ${KALDI_SRC_DIR} NO_DEFAULT_PATH)
+    find_library(KALDI_TRANSFORM_LIBRARY NAMES transform/kaldi-transform.a
+                 PATHS ${KALDI_SRC_DIR} NO_DEFAULT_PATH)
+    find_library(KALDI_TREE_LIBRARY      NAMES tree/kaldi-tree.a
+                 PATHS ${KALDI_SRC_DIR} NO_DEFAULT_PATH)
+    find_library(KALDI_UTIL_LIBRARY      NAMES util/kaldi-util.a
+                 PATHS ${KALDI_SRC_DIR} NO_DEFAULT_PATH)
     
     foreach(LIBNAME KALDI_BASE_LIBRARY KALDI_DECODER_LIBRARY KALDI_FEAT_LIBRARY KALDI_GMM_LIBRARY KALDI_HMM_LIBRARY KALDI_LAT_LIBRARY KALDI_MATRIX_LIBRARY KALDI_ONLINE_LIBRARY KALDI_TRANSFORM_LIBRARY KALDI_TREE_LIBRARY KALDI_UTIL_LIBRARY)
       if(${LIBNAME})
@@ -64,7 +77,8 @@ else (KALDI_SRC_DIR AND KALDI_TOOLS_DIR AND KALDI_LIBRARIES)
   
   if (KALDI_TOOLS_DIR)
     
-    find_path(OPENFST_INCLUDE_DIR fst/fstlib.h ${KALDI_TOOLS_DIR}/openfst/include)
+    find_path(OPENFST_INCLUDE_DIR NAMES fst/fstlib.h
+              PATHS ${KALDI_TOOLS_DIR}/openfst/include NO_DEFAULT_PATH)
     if (OPENFST_INCLUDE_DIR)
       if (NOT Kaldi_FIND_QUIETLY)
         message(STATUS "OpenFst include: ${OPENFST_INCLUDE_DIR}")
@@ -73,7 +87,8 @@ else (KALDI_SRC_DIR AND KALDI_TOOLS_DIR AND KALDI_LIBRARIES)
       message ("Openfst header files not found at ${KALDI_TOOLS_DIR}/openfst/include")
     endif (OPENFST_INCLUDE_DIR)
     
-    find_library(OPENFST_LIBRARY NAMES libfst.a PATHS ${KALDI_TOOLS_DIR}/openfst/lib)
+    find_library(OPENFST_LIBRARY NAMES libfst.a 
+                 PATHS ${KALDI_TOOLS_DIR}/openfst/lib NO_DEFAULT_PATH)
     if (OPENFST_LIBRARY)
       if (NOT Kaldi_FIND_QUIETLY)
         message(STATUS "OpenFst library: ${OPENFST_LIBRARY}")
@@ -82,7 +97,8 @@ else (KALDI_SRC_DIR AND KALDI_TOOLS_DIR AND KALDI_LIBRARIES)
       message ("Openfst library not found at ${KALDI_TOOLS_DIR}/openfst/lib")
     endif (OPENFST_LIBRARY)
     
-    find_path(PORTAUDIO_INCLUDE_DIR portaudio.h ${KALDI_TOOLS_DIR}/portaudio/install/include)
+    find_path(PORTAUDIO_INCLUDE_DIR NAMES portaudio.h PATHS
+              ${KALDI_TOOLS_DIR}/portaudio/install/include NO_DEFAULT_PATH)
     if (PORTAUDIO_INCLUDE_DIR)
       if (NOT Kaldi_FIND_QUIETLY)
         message(STATUS "PortAudio include: ${PORTAUDIO_INCLUDE_DIR}")
@@ -91,7 +107,8 @@ else (KALDI_SRC_DIR AND KALDI_TOOLS_DIR AND KALDI_LIBRARIES)
       message ("Portaudio header files not found at ${KALDI_TOOLS_DIR}/portaudio/install/include")
     endif (PORTAUDIO_INCLUDE_DIR)
     
-    find_library(PORTAUDIO_LIBRARY NAMES libportaudio.a PATHS ${KALDI_TOOLS_DIR}/portaudio/install/lib)
+    find_library(PORTAUDIO_LIBRARY NAMES libportaudio.a PATHS
+                 ${KALDI_TOOLS_DIR}/portaudio/install/lib NO_DEFAULT_PATH)
     if (PORTAUDIO_LIBRARY)
       if (NOT Kaldi_FIND_QUIETLY)
         message(STATUS "PortAudio library: ${PORTAUDIO_LIBRARY}")
@@ -100,7 +117,8 @@ else (KALDI_SRC_DIR AND KALDI_TOOLS_DIR AND KALDI_LIBRARIES)
       message ("PortAudio library not found at ${KALDI_TOOLS_DIR}/portaudio/install/lib")
     endif (PORTAUDIO_LIBRARY)
     
-    find_file(PORTAUDIO_LIBTOOL_FILE NAMES libportaudio.la PATHS ${KALDI_TOOLS_DIR}/portaudio/install/lib)
+    find_file(PORTAUDIO_LIBTOOL_FILE NAMES libportaudio.la PATHS 
+              ${KALDI_TOOLS_DIR}/portaudio/install/lib NO_DEFAULT_PATH)
     if (PORTAUDIO_LIBTOOL_FILE)
       if (NOT Kaldi_FIND_QUIETLY)
         message(STATUS "PortAudio libtool file: ${PORTAUDIO_LIBTOOL_FILE}")
