@@ -41,51 +41,79 @@ set(BARISTA_ROOT ${CMAKE_SOURCE_DIR})
 set(BARISTA_SRC_DIR ${BARISTA_ROOT}/src)
 set(BARISTA_TOOLS_DIR ${BARISTA_ROOT}/tools)
 
-# TODO: we should have a FindCPPA.cmake script which will find these.
-if (NOT CPPA_ROOT)
-  set(CPPA_ROOT ${BARISTA_TOOLS_DIR}/libcppa)
-endif()
-set(CPPA_INCLUDE_DIR ${CPPA_ROOT}/include)
-set(CPPA_LIB_DIR ${CPPA_ROOT}/lib)
+#-----------------------------------------------------------------------------#
 
-# TODO: we should have a FindKaldi.cmake script which will find these.
+# Find Kaldi and its dependencies (Atlas, OpenFst, portaudio)
+
 if (NOT KALDI_ROOT)
   set(KALDI_ROOT ${BARISTA_TOOLS_DIR}/kaldi)
 endif()
-set(KALDI_SRC_DIR ${KALDI_ROOT}/src)
-set(KALDI_TOOLS_DIR ${KALDI_ROOT}/tools)
+if (VERBOSE)
+  find_package(Kaldi REQUIRED)
+else ()
+  find_package(Kaldi QUIET REQUIRED)
+endif ()
+if (NOT ${KALDI_VERSION} VERSION_GREATER "3754")
+  message(FATAL_ERROR "Kaldi revision >= 3755 is required.")
+endif()
 
-# TODO: we should look into kaldi/src/kaldi.mk to figure out ATLAS paths.
+# TODO: we should maybe look into kaldi/src/kaldi.mk to figure out ATLAS paths.
 if (NOT ATLAS_ROOT)
   set(ATLAS_ROOT ${KALDI_TOOLS_DIR}/ATLAS)
 endif()
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   set(ENV{ATLAS_DIR} ${ATLAS_ROOT})
-  find_package(Atlas REQUIRED)
+  if (VERBOSE)
+    find_package(Atlas REQUIRED)
+  else ()
+    find_package(Atlas QUIET REQUIRED)
+  endif ()
 else()
   set(ATLAS_INCLUDE_DIR ${ATLAS_ROOT}/include)
 endif()
 
-set(OPENFST_INCLUDE_DIR ${KALDI_TOOLS_DIR}/openfst/include)
-set(OPENFST_LIB_DIR ${KALDI_TOOLS_DIR}/openfst/lib)
+#-----------------------------------------------------------------------------#
 
-set(PORTAUDIO_INCLUDE_DIR ${KALDI_TOOLS_DIR}/portaudio/install/include)
-set(PORTAUDIO_LIB_DIR ${KALDI_TOOLS_DIR}/portaudio/install/lib)
-set(PORTAUDIO_LIBTOOL_LIB ${PORTAUDIO_LIB_DIR}/libportaudio.la)
-
-
-# Prevent falling back to system paths when using a custom Boost prefix.
-if (BOOST_ROOT)
-  set(Boost_NO_SYSTEM_PATHS true)
+# Find libcppa
+if (NOT CPPA_ROOT)
+  set(CPPA_ROOT ${BARISTA_TOOLS_DIR}/libcppa)
 endif ()
-find_package(Boost REQUIRED)
+if (VERBOSE)
+  find_package(LibCPPA REQUIRED)
+else ()
+  find_package(LibCPPA QUIET REQUIRED)
+endif ()
+if (NOT ${CPPA_VERSION} VERSION_EQUAL "0.8.1")
+  message(FATAL_ERROR "libcppa version 0.8.1 is required.")
+endif()
 
+#-----------------------------------------------------------------------------#
+
+# Find GraphViz
 if (NOT GRAPHVIZ_ROOT)
   set(GRAPHVIZ_ROOT ${BARISTA_TOOLS_DIR}/graphviz)
 endif()
 set(ENV{GRAPHVIZ_ROOT} ${GRAPHVIZ_ROOT})
-find_package(Graphviz REQUIRED)
+if (VERBOSE)
+  find_package(Graphviz REQUIRED)
+else ()
+  find_package(Graphviz QUIET REQUIRED)
+endif ()
+if (NOT ${GRAPHVIZ_VERSION} VERSION_GREATER "2.29")
+  message(FATAL_ERROR "GraphViz version >= 2.30 is required.")
+endif()
+
+#-----------------------------------------------------------------------------#
+
+# Find Boost
+if (BOOST_ROOT)
+  set(Boost_NO_SYSTEM_PATHS true)
+endif ()
+find_package(Boost REQUIRED)
+if (NOT Boost_FOUND)
+  message(FATAL_ERROR "Boost not found.")
+endif ()
 
 
 ###############################################################################
@@ -108,12 +136,12 @@ find_package(Graphviz REQUIRED)
 ###############################################################################
 
 # Extract platform dependent portaudio dependencies from the libtool library
-execute_process(COMMAND grep "^dependency_libs" ${PORTAUDIO_LIBTOOL_LIB}
+execute_process(COMMAND grep "^dependency_libs" ${PORTAUDIO_LIBTOOL_FILE}
                 COMMAND sed "s/.*=//; s/'//g; s/^ *//; s/ *$//;"
                 COMMAND tr -d "\n"
                 OUTPUT_VARIABLE DEPENDENCY_LIBS)
 
-execute_process(COMMAND grep "^inherited" ${PORTAUDIO_LIBTOOL_LIB}
+execute_process(COMMAND grep "^inherited" ${PORTAUDIO_LIBTOOL_FILE}
                 COMMAND sed "s/.*=//; s/'//g; s/^ *//; s/ *$//;"
                 COMMAND tr -d "\n"
                 OUTPUT_VARIABLE DEPENDENCY_FLAGS)
@@ -147,10 +175,10 @@ set_source_files_properties(src/decoder/faster-online-decoder.cc PROPERTIES COMP
 # Add targets (You probably don't need to change anything beyond this point)  #
 ###############################################################################
 
-link_directories(${OPENFST_LIB_DIR} ${CPPA_LIB_DIR})
+# link_directories(${OPENFST_LIB_DIR} ${CPPA_LIB_DIR})
 
 include_directories(
-  ${BARISTA_SRC_DIR} 
+  ${BARISTA_SRC_DIR}
   ${Boost_INCLUDE_DIRS}
   ${GRAPHVIZ_INCLUDE_DIRS}
   ${CPPA_INCLUDE_DIR}
@@ -187,22 +215,12 @@ add_executable(barista src/bin/barista.cc)
 
 target_link_libraries(barista 
   barista-base barista-io barista-feat barista-decoder barista-gmm
-  ${CPPA_LIB_DIR}/libcppa_static.a
+  ${CPPA_LIBRARY}
   ${GRAPHVIZ_GVC_LIBRARY} ${GRAPHVIZ_CGRAPH_LIBRARY}
-  ${KALDI_SRC_DIR}/online/kaldi-online.a  
-  ${KALDI_SRC_DIR}/decoder/kaldi-decoder.a
-  ${KALDI_SRC_DIR}/feat/kaldi-feat.a
-  ${KALDI_SRC_DIR}/gmm/kaldi-gmm.a
-  ${KALDI_SRC_DIR}/hmm/kaldi-hmm.a
-  ${KALDI_SRC_DIR}/lat/kaldi-lat.a
-  ${KALDI_SRC_DIR}/matrix/kaldi-matrix.a
-  ${KALDI_SRC_DIR}/transform/kaldi-transform.a
-  ${KALDI_SRC_DIR}/tree/kaldi-tree.a
-  ${KALDI_SRC_DIR}/util/kaldi-util.a
-  ${KALDI_SRC_DIR}/base/kaldi-base.a
+  ${KALDI_LIBRARIES}
   ${ATLAS_LIBRARIES}  # empty on mac os x
-  ${OPENFST_LIB_DIR}/libfst.a
-  ${PORTAUDIO_LIB_DIR}/libportaudio.a
+  ${OPENFST_LIBRARY}
+  ${PORTAUDIO_LIBRARY}
   dl m pthread
   ${DEPENDENCY_LIBS}  # empty on mac os x
 )
@@ -212,7 +230,7 @@ target_link_libraries(barista
 # Installation Setup                                                          #
 ###############################################################################
 
-# install targets
+# install executables and libraries
 install(TARGETS 
   barista 
   barista-base barista-io barista-feat barista-decoder barista-gmm
@@ -221,7 +239,7 @@ install(TARGETS
   ARCHIVE DESTINATION lib
 )
 
-# install includes
+# install header files
 install(DIRECTORY src/ DESTINATION include FILES_MATCHING PATTERN "*.h")
 
 # process cmake_uninstall.cmake.in
