@@ -55,7 +55,7 @@ bool SpawnActors(adjacency_list_type& graph, ptree& config,
   // Spawn an actor for each node in the graph
   for (int u = 0; u < graph.size(); u++) {
     string actor_name = graph[u].first;
-  	string actor_type = config.get<string>(actor_name + ".actor_type");
+    string actor_type = config.get<string>(actor_name + ".actor_type");
     // aout << actor_name << " : " << actor_type << endl;
     
     // Create a subscribers group for the actor to be spawned
@@ -88,7 +88,7 @@ bool SpawnActors(adjacency_list_type& graph, ptree& config,
     } else {
       aout << "Unknown actor type: " << actor_type << endl;
       return false;
-    }    
+    }
   }
   return true;
 }
@@ -111,7 +111,7 @@ bool RunActors(adjacency_list_type& graph,
                 " failed to subscribe to the actors group." << endl;
         return false;
       }
-    );    
+    );
     
     // Iterate over the subscribers of the current actor
     for (int v = 0; v < graph[u].second.size(); v++) {
@@ -149,28 +149,28 @@ int main(int argc, char *argv[]) {
   try {
     const char *usage =
       "Launch a barista instance.\n"
-      "Usage:  barista [options] module-config.ini [module-graph.dot]\n"
-      "Note: module-config is a configuration file in INI format.\n"
-      "      module-graph  is a directed graph in DOT (GraphViz) format.";
+      "Usage:  barista [options] module-init.ini module-graph.dot\n"
+      "Note: module-init  is an INI file used for initializing the modules.\n"
+      "      module-graph is a  DOT file used for defining the module graph.";
     ParseOptions po(usage);
     po.Read(argc, argv);
-  
+    
     if (po.NumArgs() != 2) {
       po.PrintUsage();
       exit(1);
     }
-
+    
     string config_filename = po.GetArg(1), graph_filename = po.GetArg(2);
-  
+    
     // Read actor config
-  	ptree config;
-  	read_ini(config_filename, config);
-  
+    ptree config;
+    read_ini(config_filename, config);
+    
     // Read actor graph
     adjacency_list_type graph;
     if(!ReadGraph(graph_filename, &graph))
       exit(1);
-  
+    
     // Announce kaldi types to the libcppa type system;
     AnnounceKaldiTypes();
     
