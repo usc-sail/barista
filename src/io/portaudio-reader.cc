@@ -22,7 +22,7 @@ behavior PaReader::Run(){
     on(atom("QUIT")) >> [=]() {
       self->quit(exit_reason::user_shutdown);
     },
-    after(std::chrono::seconds(0)) >> [=]() {
+    after(std::chrono::milliseconds(200)) >> [=]() {
       if (active) {
         aout << "." << flush;
         audio_src->Read(&data);
