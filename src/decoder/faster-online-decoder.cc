@@ -38,7 +38,7 @@ void FasterOnlineDecoder::InitDecode() {
   KALDI_ASSERT(start_state != fst::kNoStateId);
   Arc dummy_arc(0, 0, Weight::One(), start_state);
   toks_.Insert(start_state, new Token(dummy_arc, NULL));
-  ProcessNonemitting(std::numeric_limits<float>::max());
+  ProcessNonemitting(std::numeric_limits<BaseFloat>::max());
 }
 
 void FasterOnlineDecoder::Decode(DecodableInterface *decodable) {

@@ -8,7 +8,7 @@ using namespace cppa;
 
 behavior Filter::Run(){
   return (
-    on<string, Vector<float> >() >> [=](string key, Vector<float> data) {
+    on<string, Vector<BaseFloat> >() >> [=](string key, Vector<BaseFloat> data) {
       for (int i = 0; i < data.Dim(); i++) {
         data(i) = data(i) * weight;
       }

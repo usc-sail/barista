@@ -6,7 +6,7 @@ using namespace cppa;
 
 behavior ComputeMFCCFeats::Run(){
   return (
-    on<string, Vector<float> >() >> [=](string key, Vector<float> in_data) {
+    on<string, Vector<BaseFloat> >() >> [=](string key, Vector<BaseFloat> in_data) {
       ComputeMFCC(key, in_data);
     },
     on(atom("UTT_END")) >> [=]() {
@@ -23,11 +23,11 @@ behavior ComputeMFCCFeats::Run(){
   );
 }
 
-bool ComputeMFCCFeats::ComputeMFCC(string& key, Vector<float>& in_data) {
+bool ComputeMFCCFeats::ComputeMFCC(string& key, Vector<BaseFloat>& in_data) {
   
   // add new wave data at the end of waveform
   waveform.Resize(waveform.Dim() + in_data.Dim(), kaldi::kCopyData);
-  SubVector<float>(waveform, waveform.Dim() - in_data.Dim(), in_data.Dim()).CopyFromVec(in_data);
+  SubVector<BaseFloat>(waveform, waveform.Dim() - in_data.Dim(), in_data.Dim()).CopyFromVec(in_data);
 
   // if the waveform data length is less than window length, continue to get data
   if (waveform.Dim() < frame_window_length)
@@ -35,7 +35,7 @@ bool ComputeMFCCFeats::ComputeMFCC(string& key, Vector<float>& in_data) {
 
   // after computing features of the current waveform data, 
   // save the remainder for the next chunk            
-  Vector<float> waveform_remainder;
+  Vector<BaseFloat> waveform_remainder;
   mfcc->Compute(waveform, vtln_warp_local, &out_data, &waveform_remainder);
   waveform.Swap(&waveform_remainder);
   

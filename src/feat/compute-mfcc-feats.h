@@ -13,7 +13,7 @@ public:
     ModuleBase(name_, subscribers_) {
     // config
     use_energy = config.get<bool>(name + ".use_energy");
-    vtln_warp_local = config.get<float>(name + ".vtln_warp_local");
+    vtln_warp_local = config.get<kaldi::BaseFloat>(name + ".vtln_warp_local");
     
     // Set MFCC options and allocate an MFCC extractor
     kaldi::MfccOptions op;
@@ -35,19 +35,19 @@ public:
   cppa::behavior Run();
 
 private:
-  bool ComputeMFCC(std::string& key, kaldi::Vector<float>& in_data);
+  bool ComputeMFCC(std::string& key, kaldi::Vector<kaldi::BaseFloat>& in_data);
   
   // configurable members
   bool use_energy;
-  float vtln_warp_local;
+  kaldi::BaseFloat vtln_warp_local;
 
   // class internal members
   kaldi::Mfcc* mfcc;
   
   kaldi::uint32 frame_window_length; 
   
-  kaldi::Vector<float> waveform;     // holds the input waveform
-  kaldi::Matrix<float> out_data;     // holds the features
+  kaldi::Vector<kaldi::BaseFloat> waveform;     // holds the input waveform
+  kaldi::Matrix<kaldi::BaseFloat> out_data;     // holds the features
 };
 
 #endif

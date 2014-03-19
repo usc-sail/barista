@@ -8,7 +8,7 @@ using namespace cppa;
 
 behavior MatrixWriter::Run(){
   return (
-    on<string, Matrix<float> >() >> [=](string key, Matrix<float> data) {
+    on<string, Matrix<BaseFloat> >() >> [=](string key, Matrix<BaseFloat> data) {
       data.Write(*sink, false);
     },
     on(atom("UTT_END")) >> [=]() {

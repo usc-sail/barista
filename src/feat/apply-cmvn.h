@@ -34,14 +34,14 @@ private:
   kaldi::uint32 context_size;
   
   // class internal members
-  kaldi::Matrix<float> buffer;    // circular buffer
+  kaldi::Matrix<kaldi::BaseFloat> buffer;    // circular buffer
   kaldi::uint32 buffer_size;      
   kaldi::uint32 head;             // keeps track of head frame
   kaldi::uint32 current;          // keeps track of first frame to normalize
   kaldi::uint32 last;             // keeps track of last frame to normalize
   bool full;                      // buffer full or not
   
-  kaldi::Matrix<float> out_data;  // normalized frames
+  kaldi::Matrix<kaldi::BaseFloat> out_data;  // normalized frames
   kaldi::uint32 out_size;         // number of normalized frames
   
   kaldi::Matrix<double> cmvn_stats;  

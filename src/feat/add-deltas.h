@@ -41,10 +41,10 @@ private:
   kaldi::DeltaFeaturesOptions opts;
   kaldi::MatrixIndexT pad_size;
   
-  kaldi::Matrix<float> pad_feats;
-  kaldi::Matrix<float> delta_feats;
+  kaldi::Matrix<kaldi::BaseFloat> pad_feats;
+  kaldi::Matrix<kaldi::BaseFloat> delta_feats;
   
-  kaldi::Matrix<float> out_data;
+  kaldi::Matrix<kaldi::BaseFloat> out_data;
   
 };
 

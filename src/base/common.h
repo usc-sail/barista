@@ -6,6 +6,8 @@
 #include <fstream>
 #include <iostream>
 
+#include "base/kaldi-types.h"
+
 #include "cppa/cppa.hpp"
 
 #include <boost/property_tree/ptree.hpp>

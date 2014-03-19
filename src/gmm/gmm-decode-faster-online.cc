@@ -105,7 +105,7 @@ void WriteBestPath(FasterOnlineDecoder &decoder,
 
 behavior GMMDecodeFasterOnline::Run(){
   return (
-    on<string, Matrix<float> >() >> [=](string key, Matrix<float> feats) {
+    on<string, Matrix<BaseFloat> >() >> [=](string key, Matrix<BaseFloat> feats) {
 
       // read key
       std::stringstream ss;

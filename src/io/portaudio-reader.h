@@ -3,7 +3,6 @@
 
 #include "base/module-base.h"
 
-#include "base/kaldi-types.h"
 #include "matrix/kaldi-vector.h"
 #include "online/online-audio-source.h"
 
@@ -48,7 +47,7 @@ private:
 
   // class internal members
   kaldi::OnlinePaSource* audio_src;
-  kaldi::Vector<float> data;      // output pcm data (represented as floats)
+  kaldi::Vector<kaldi::BaseFloat> data;      // output pcm data (represented as floats)
   
   bool active;
 };

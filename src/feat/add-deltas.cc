@@ -6,7 +6,7 @@ using namespace cppa;
 
 behavior AddDeltas::Run(){
   return (
-    on<string, Matrix<float> >() >> [=](string key, Matrix<float> feats) {
+    on<string, Matrix<BaseFloat> >() >> [=](string key, Matrix<BaseFloat> feats) {
       
       // redundant check -- this should already be taken care of
       // if (feats.NumRows() == 0) {

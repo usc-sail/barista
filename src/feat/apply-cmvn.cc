@@ -28,7 +28,7 @@ void DiscardCmvnStats(const VectorBase<BaseFloat> &feats,
 
 behavior ApplyCMVN::Run(){
   return (
-    on<string, Matrix<float> >() >> [=](string key, Matrix<float> data) {
+    on<string, Matrix<BaseFloat> >() >> [=](string key, Matrix<BaseFloat> data) {
       
       if (buffer.NumRows() == 0) {
         buffer.Resize(buffer_size, data.NumCols(), kUndefined);

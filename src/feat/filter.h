@@ -13,7 +13,7 @@ public:
          const boost::property_tree::ptree& config) :
     ModuleBase(name_, subscribers_) {
     // config
-    weight = config.get<float>(name + ".weight");
+    weight = config.get<kaldi::BaseFloat>(name + ".weight");
     
     running_state = Run();
   }
@@ -24,7 +24,7 @@ public:
 
 private:
   // configurable members
-  float weight;
+  kaldi::BaseFloat weight;
 
 };
 

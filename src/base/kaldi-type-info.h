@@ -1,5 +1,6 @@
 #include "cppa/cppa.hpp"
 
+#include "base/kaldi-types.h"
 #include "matrix/kaldi-vector.h"
 #include "matrix/kaldi-matrix.h"
 
@@ -93,13 +94,9 @@ protected:
 
 // Announces kaldi types to the libcppa type system.
 bool AnnounceKaldiTypes() {
-  announce(typeid(kaldi::Vector<float>), 
-           std::unique_ptr<uniform_type_info>{new VectorTypeInfo<float>});
-  announce(typeid(kaldi::Vector<double>), 
-           std::unique_ptr<uniform_type_info>{new VectorTypeInfo<double>});
-  announce(typeid(kaldi::Matrix<float>), 
-           std::unique_ptr<uniform_type_info>{new MatrixTypeInfo<float>});
-  announce(typeid(kaldi::Matrix<double>), 
-           std::unique_ptr<uniform_type_info>{new MatrixTypeInfo<double>});
+  announce(typeid(kaldi::Vector<kaldi::BaseFloat>), 
+    std::unique_ptr<uniform_type_info>{new VectorTypeInfo<kaldi::BaseFloat>});
+  announce(typeid(kaldi::Matrix<kaldi::BaseFloat>), 
+    std::unique_ptr<uniform_type_info>{new MatrixTypeInfo<kaldi::BaseFloat>});
   return true;
 }

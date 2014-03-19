@@ -31,8 +31,8 @@ public:
     alignment_wspecifier = config.get<std::string>(name + ".alignment_wspecifier");
     lattice_wspecifier = config.get<std::string>(name + ".lattice_wspecifier");
     
-    acoustic_scale = config.get<float>(name + ".acoustic_scale");
-    beam = config.get<float>(name + ".beam");
+    acoustic_scale = config.get<kaldi::BaseFloat>(name + ".acoustic_scale");
+    beam = config.get<kaldi::BaseFloat>(name + ".beam");
     max_active = config.get<int>(name + ".max_active");
     allow_partial = config.get<bool>(name + ".allow_partial");
     
@@ -105,8 +105,8 @@ private:
   std::string alignment_wspecifier;
   std::string lattice_wspecifier;
 
-  float acoustic_scale;
-  float beam;
+  kaldi::BaseFloat acoustic_scale;
+  kaldi::BaseFloat beam;
   kaldi::int32 max_active;
   bool allow_partial;  
   
@@ -126,7 +126,7 @@ private:
   kaldi::FasterOnlineDecoder *decoder;
   
   
-  float tot_like;
+  kaldi::BaseFloat tot_like;
   kaldi::int64 frame_count;
   kaldi::int32 num_success, num_fail;
 

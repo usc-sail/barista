@@ -3,7 +3,6 @@
 
 #include "base/module-base.h"
 
-#include <base/kaldi-types.h>
 #include <matrix/kaldi-vector.h>
 
 class PCMReader : public ModuleBase {
@@ -43,7 +42,7 @@ private:
   kaldi::uint32 bytes_per_sample;
   kaldi::uint32 bytes_per_chunk;
   char* chunk_data;               // binary chunk read from file
-  kaldi::Vector<float> data;      // output pcm data (represented as floats)
+  kaldi::Vector<kaldi::BaseFloat> data;      // output pcm data (represented as floats)
 };
 
 #endif

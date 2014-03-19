@@ -8,7 +8,7 @@ using namespace cppa;
 
 behavior VectorWriter::Run(){
   return (
-    on<string, Vector<float> >() >> [=](string key, Vector<float> data) {
+    on<string, Vector<BaseFloat> >() >> [=](string key, Vector<BaseFloat> data) {
       data.Write(*sink, false);
     },
     on(atom("UTT_END")) >> [=]() {
